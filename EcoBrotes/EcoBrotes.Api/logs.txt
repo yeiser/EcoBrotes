@@ -1,0 +1,761 @@
+2025-01-14 10:22:09.282 -05:00 [ERR] An error occurred using the connection to database '' on server ''.
+2025-01-14 10:22:09.311 -05:00 [ERR] An exception occurred while iterating over the results of a query for context type 'FooBar.Infrastructure.DataSource.DataContext'.
+System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.InternalOpenAsync(CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.InternalOpenAsync(CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2025-01-24 13:05:37.070 -05:00 [INF] Saved 1 entities to in-memory store.
+2025-01-24 13:05:37.103 -05:00 [INF] Saved 1 entities to in-memory store.
+2025-01-24 13:05:37.197 -05:00 [INF] Now listening on: http://localhost:5290
+2025-01-24 13:05:37.203 -05:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2025-01-24 13:05:37.270 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-24 13:05:37.271 -05:00 [INF] Hosting environment: Development
+2025-01-24 13:05:37.271 -05:00 [INF] Content root path: D:\swat\Bloque\FooBar\FooBar\FooBar.Api
+2025-01-24 13:05:37.773 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/swagger - null null
+2025-01-24 13:05:37.878 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/swagger - 301 0 null 105.6826ms
+2025-01-24 13:05:37.883 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/swagger/index.html - null null
+2025-01-24 13:05:37.926 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/swagger/index.html - 200 null text/html;charset=utf-8 43.1841ms
+2025-01-24 13:05:38.107 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/swagger/swagger-ui.css - null null
+2025-01-24 13:05:38.108 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/swagger/index.css - null null
+2025-01-24 13:05:38.108 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/swagger/swagger-ui-bundle.js - null null
+2025-01-24 13:05:38.108 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/swagger/swagger-ui-standalone-preset.js - null null
+2025-01-24 13:05:38.109 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-24 13:05:38.109 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/swagger/index.js - null null
+2025-01-24 13:05:38.124 -05:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-01-24 13:05:38.124 -05:00 [INF] Sending file. Request path: '/index.css'. Physical path: 'N/A'
+2025-01-24 13:05:38.133 -05:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-01-24 13:05:38.136 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/_framework/aspnetcore-browser-refresh.js - 200 13782 application/javascript; charset=utf-8 27.6912ms
+2025-01-24 13:05:38.138 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/swagger/index.js - 200 null application/javascript;charset=utf-8 29.8012ms
+2025-01-24 13:05:38.140 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/swagger/swagger-ui.css - 200 152035 text/css 32.6982ms
+2025-01-24 13:05:38.141 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/swagger/index.css - 200 202 text/css 33.4905ms
+2025-01-24 13:05:38.143 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/swagger/swagger-ui-standalone-preset.js - 200 230007 text/javascript 34.9703ms
+2025-01-24 13:05:38.148 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/_vs/browserLink - null null
+2025-01-24 13:05:38.184 -05:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-01-24 13:05:38.186 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/swagger/swagger-ui-bundle.js - 200 1426050 text/javascript 77.5749ms
+2025-01-24 13:05:38.222 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/_vs/browserLink - 200 null text/javascript; charset=UTF-8 73.4248ms
+2025-01-24 13:05:38.450 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/swagger/v1/swagger.json - null null
+2025-01-24 13:05:38.450 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/swagger/favicon-32x32.png - null null
+2025-01-24 13:05:38.459 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 8.7953ms
+2025-01-24 13:05:38.460 -05:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-01-24 13:05:38.467 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/swagger/favicon-32x32.png - 200 628 image/png 16.3994ms
+2025-01-24 13:05:48.938 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5290/api/invoice - application/json 177
+2025-01-24 13:05:48.942 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-01-24 13:05:48.976 -05:00 [INF] Executing endpoint 'HTTP: POST /api/invoice/'
+2025-01-24 13:05:49.008 -05:00 [INF] Setting HTTP status code 422.
+2025-01-24 13:05:49.014 -05:00 [INF] Writing value of type 'HttpValidationProblemDetails' as Json.
+2025-01-24 13:05:49.017 -05:00 [INF] Executed endpoint 'HTTP: POST /api/invoice/'
+2025-01-24 13:05:49.020 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5290/api/invoice - 422 null application/problem+json 81.4606ms
+2025-01-24 13:06:03.187 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5290/api/invoice - application/json 177
+2025-01-24 13:06:03.193 -05:00 [INF] Executing endpoint 'HTTP: POST /api/invoice/'
+2025-01-24 13:06:03.241 -05:00 [INF] Executed endpoint 'HTTP: POST /api/invoice/'
+2025-01-24 13:06:03.243 -05:00 [ERR] Error: the customer with id 3fa85f64-5717-4562-b3fc-2c963f66afa6 does not exist.
+FooBar.Domain.Exceptions.RequiredException: the customer with id 3fa85f64-5717-4562-b3fc-2c963f66afa6 does not exist.
+   at FooBar.Domain.Common.ArgumentValidator.ValidateNull(Object value, String message) in D:\swat\Bloque\FooBar\FooBar\FooBar.Domain\Common\ArgumentValidator.cs:line 11
+   at FooBar.Application.Invoice.Command.Factory.InvoiceFactory.CreateAsync(InsertInvoiceCommand insertInvoiceCommand) in D:\swat\Bloque\FooBar\FooBar\FooBar.Application\Invoices\Command\Factory\InvoiceFactory.cs:line 13
+   at FooBar.Application.Invoice.Command.InsertInvoiceHandler.Handle(InsertInvoiceCommand request, CancellationToken cancellationToken) in D:\swat\Bloque\FooBar\FooBar\FooBar.Application\Invoices\Command\InsertInvoiceHandler.cs:line 12
+   at FooBar.Api.ApiHandlers.InvoiceApi.<>c.<<MapInvoice>b__0_0>d.MoveNext() in D:\swat\Bloque\FooBar\FooBar\FooBar.Api\ApiHandlers\InvoiceApi.cs:line 14
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<TaskOfTToValueTaskOfObject>g__ExecuteAwaited|92_0[T](Task`1 task)
+   at FooBar.Api.Filters.ValidationFilter.ValidateAsync(IEnumerable`1 validationDescriptors, EndpointFilterInvocationContext invocationContext, EndpointFilterDelegate next) in D:\swat\Bloque\FooBar\FooBar\FooBar.Api\Filters\ValidationFilter.cs:line 41
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<ExecuteValueTaskOfObject>g__ExecuteAwaited|129_0(ValueTask`1 valueTask, HttpContext httpContext, JsonTypeInfo`1 jsonTypeInfo)
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<>c__DisplayClass102_2.<<HandleRequestBodyAndCompileRequestDelegateForJson>b__2>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at FooBar.Api.Middleware.AppExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in D:\swat\Bloque\FooBar\FooBar\FooBar.Api\Middleware\ExceptionHandler.cs:line 22
+2025-01-24 13:06:03.279 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5290/api/invoice - 400 null application/json 92.7602ms
+2025-01-24 13:06:26.195 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/api/invoice/cancels - null null
+2025-01-24 13:06:26.200 -05:00 [INF] Executing endpoint 'HTTP: GET /api/invoice/cancels'
+2025-01-24 13:06:26.238 -05:00 [INF] Executed endpoint 'HTTP: GET /api/invoice/cancels'
+2025-01-24 13:06:26.240 -05:00 [ERR] Error: Relational-specific methods can only be used when the context is using a relational database provider.
+System.InvalidOperationException: Relational-specific methods can only be used when the context is using a relational database provider.
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.GetFacadeDependencies(DatabaseFacade databaseFacade)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.GetDbConnection(DatabaseFacade databaseFacade)
+   at FooBar.Infrastructure.Invoices.Adapters.InvoiceSimpleQueryRepository.get_DbConnection() in D:\swat\Bloque\FooBar\FooBar\FooBar.Infrastructure\Invoices\Adapters\InvoiceSimpleQueryRepository.cs:line 15
+   at FooBar.Infrastructure.Invoices.Adapters.InvoiceSimpleQueryRepository.GetAllCancelAsync() in D:\swat\Bloque\FooBar\FooBar\FooBar.Infrastructure\Invoices\Adapters\InvoiceSimpleQueryRepository.cs:line 19
+   at FooBar.Application.Invoice.Query.GetAllCancelHandler.Handle(GetAllCancelQuery request, CancellationToken cancellationToken) in D:\swat\Bloque\FooBar\FooBar\FooBar.Application\Invoices\Query\GetAllCancelHandler.cs:line 11
+   at FooBar.Api.ApiHandlers.InvoiceApi.<>c.<<MapInvoice>b__0_3>d.MoveNext() in D:\swat\Bloque\FooBar\FooBar\FooBar.Api\ApiHandlers\InvoiceApi.cs:line 40
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<TaskOfTToValueTaskOfObject>g__ExecuteAwaited|92_0[T](Task`1 task)
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<ExecuteValueTaskOfObject>g__ExecuteAwaited|129_0(ValueTask`1 valueTask, HttpContext httpContext, JsonTypeInfo`1 jsonTypeInfo)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at FooBar.Api.Middleware.AppExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in D:\swat\Bloque\FooBar\FooBar\FooBar.Api\Middleware\ExceptionHandler.cs:line 22
+2025-01-24 13:06:26.248 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/api/invoice/cancels - 500 null application/json 53.6071ms
+2025-01-24 13:08:11.188 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/swagger/index.html - null null
+2025-01-24 13:08:11.195 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/swagger/index.html - 200 null text/html;charset=utf-8 7.4227ms
+2025-01-24 13:08:11.622 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-24 13:08:11.623 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/swagger/index.js - null null
+2025-01-24 13:08:11.623 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/_vs/browserLink - null null
+2025-01-24 13:08:11.628 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/_framework/aspnetcore-browser-refresh.js - 200 13782 application/javascript; charset=utf-8 5.4721ms
+2025-01-24 13:08:11.635 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/swagger/index.js - 200 null application/javascript;charset=utf-8 11.9462ms
+2025-01-24 13:08:11.641 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/_vs/browserLink - 200 null text/javascript; charset=UTF-8 17.4065ms
+2025-01-24 13:08:12.024 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/swagger/v1/swagger.json - null null
+2025-01-24 13:08:12.030 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 5.8708ms
+2025-01-24 13:09:31.665 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5290/api/invoice - application/json 177
+2025-01-24 13:09:31.671 -05:00 [INF] Executing endpoint 'HTTP: POST /api/invoice/'
+2025-01-24 13:09:31.679 -05:00 [INF] Executed endpoint 'HTTP: POST /api/invoice/'
+2025-01-24 13:09:31.680 -05:00 [ERR] Error: the customer with id 3fa85f64-5717-4562-b3fc-2c963f66afa6 does not exist.
+FooBar.Domain.Exceptions.RequiredException: the customer with id 3fa85f64-5717-4562-b3fc-2c963f66afa6 does not exist.
+   at FooBar.Domain.Common.ArgumentValidator.ValidateNull(Object value, String message) in D:\swat\Bloque\FooBar\FooBar\FooBar.Domain\Common\ArgumentValidator.cs:line 11
+   at FooBar.Application.Invoice.Command.Factory.InvoiceFactory.CreateAsync(InsertInvoiceCommand insertInvoiceCommand) in D:\swat\Bloque\FooBar\FooBar\FooBar.Application\Invoices\Command\Factory\InvoiceFactory.cs:line 13
+   at FooBar.Application.Invoice.Command.InsertInvoiceHandler.Handle(InsertInvoiceCommand request, CancellationToken cancellationToken) in D:\swat\Bloque\FooBar\FooBar\FooBar.Application\Invoices\Command\InsertInvoiceHandler.cs:line 12
+   at FooBar.Api.ApiHandlers.InvoiceApi.<>c.<<MapInvoice>b__0_0>d.MoveNext() in D:\swat\Bloque\FooBar\FooBar\FooBar.Api\ApiHandlers\InvoiceApi.cs:line 14
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<TaskOfTToValueTaskOfObject>g__ExecuteAwaited|92_0[T](Task`1 task)
+   at FooBar.Api.Filters.ValidationFilter.ValidateAsync(IEnumerable`1 validationDescriptors, EndpointFilterInvocationContext invocationContext, EndpointFilterDelegate next) in D:\swat\Bloque\FooBar\FooBar\FooBar.Api\Filters\ValidationFilter.cs:line 41
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<ExecuteValueTaskOfObject>g__ExecuteAwaited|129_0(ValueTask`1 valueTask, HttpContext httpContext, JsonTypeInfo`1 jsonTypeInfo)
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<>c__DisplayClass102_2.<<HandleRequestBodyAndCompileRequestDelegateForJson>b__2>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at FooBar.Api.Middleware.AppExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in D:\swat\Bloque\FooBar\FooBar\FooBar.Api\Middleware\ExceptionHandler.cs:line 22
+2025-01-24 13:09:31.684 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5290/api/invoice - 400 null application/json 18.9148ms
+2025-01-24 13:09:50.281 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5290/api/invoice - application/json 144
+2025-01-24 13:09:50.289 -05:00 [INF] Executing endpoint 'HTTP: POST /api/invoice/'
+2025-01-24 13:09:50.298 -05:00 [INF] Executed endpoint 'HTTP: POST /api/invoice/'
+2025-01-24 13:09:50.302 -05:00 [ERR] Error: Failed to read parameter "InsertInvoiceCommand invoice" from the request body as JSON.
+Microsoft.AspNetCore.Http.BadHttpRequestException: Failed to read parameter "InsertInvoiceCommand invoice" from the request body as JSON.
+ ---> System.Text.Json.JsonException: The JSON value could not be converted to FooBar.Application.Invoice.Command.InsertInvoiceCommand. Path: $.customerId | LineNumber: 1 | BytePositionInLine: 21.
+ ---> System.FormatException: The JSON value is not in a supported Guid format.
+   at System.Text.Json.ThrowHelper.ThrowFormatException(DataType dataType)
+   at System.Text.Json.Utf8JsonReader.GetGuid()
+   at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value, Boolean& isPopulatedValue)
+   at System.Text.Json.Serialization.Converters.SmallObjectWithParameterizedConstructorConverter`5.TryRead[TArg](ReadStack& state, Utf8JsonReader& reader, JsonParameterInfo jsonParameterInfo, TArg& arg)
+   at System.Text.Json.Serialization.Converters.SmallObjectWithParameterizedConstructorConverter`5.ReadAndCacheConstructorArgument(ReadStack& state, Utf8JsonReader& reader, JsonParameterInfo jsonParameterInfo)
+   at System.Text.Json.Serialization.Converters.ObjectWithParameterizedConstructorConverter`1.ReadConstructorArgumentsWithContinuation(ReadStack& state, Utf8JsonReader& reader, JsonSerializerOptions options)
+   at System.Text.Json.Serialization.Converters.ObjectWithParameterizedConstructorConverter`1.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value, Boolean& isPopulatedValue)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   --- End of inner exception stack trace ---
+   at System.Text.Json.ThrowHelper.ReThrowWithPath(ReadStack& state, Utf8JsonReader& reader, Exception ex)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.ContinueDeserialize(ReadBufferState& bufferState, JsonReaderState& jsonReaderState, ReadStack& readStack)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.DeserializeAsync(Stream utf8Json, CancellationToken cancellationToken)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.DeserializeAsObjectAsync(Stream utf8Json, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Http.HttpRequestJsonExtensions.ReadFromJsonAsync(HttpRequest request, JsonTypeInfo jsonTypeInfo, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Http.HttpRequestJsonExtensions.ReadFromJsonAsync(HttpRequest request, JsonTypeInfo jsonTypeInfo, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<HandleRequestBodyAndCompileRequestDelegateForJson>g__TryReadBodyAsync|102_0(HttpContext httpContext, Type bodyType, String parameterTypeName, String parameterName, Boolean allowEmptyRequestBody, Boolean throwOnBadRequest, JsonTypeInfo jsonTypeInfo)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.Log.InvalidJsonRequestBody(HttpContext httpContext, String parameterTypeName, String parameterName, Exception exception, Boolean shouldThrow)
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<HandleRequestBodyAndCompileRequestDelegateForJson>g__TryReadBodyAsync|102_0(HttpContext httpContext, Type bodyType, String parameterTypeName, String parameterName, Boolean allowEmptyRequestBody, Boolean throwOnBadRequest, JsonTypeInfo jsonTypeInfo)
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<>c__DisplayClass102_2.<<HandleRequestBodyAndCompileRequestDelegateForJson>b__2>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at FooBar.Api.Middleware.AppExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in D:\swat\Bloque\FooBar\FooBar\FooBar.Api\Middleware\ExceptionHandler.cs:line 22
+2025-01-24 13:09:50.318 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5290/api/invoice - 500 null application/json 37.1095ms
+2025-01-24 13:10:22.242 -05:00 [INF] Application is shutting down...
+2026-07-07 08:05:38.243 -05:00 [INF] Now listening on: http://localhost:5290
+2026-07-07 08:05:38.258 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-07-07 08:05:38.259 -05:00 [INF] Hosting environment: Development
+2026-07-07 08:05:38.259 -05:00 [INF] Content root path: d:\Proyectos\ADN-Ceiba\NetCore8.1.0.0\EcoBrotes\EcoBrotes.Api
+2026-07-07 08:05:47.881 -05:00 [ERR] Health check DataContext with status "Unhealthy" completed after 4618.9384ms with message 'null'
+2026-07-07 08:06:09.524 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/api/jornadas/ - null null
+2026-07-07 08:06:09.540 -05:00 [WRN] Failed to determine the https port for redirect.
+2026-07-07 08:06:09.640 -05:00 [INF] Executing endpoint 'HTTP: GET /api/jornadas/'
+2026-07-07 08:06:13.872 -05:00 [ERR] An error occurred using the connection to database 'ecobrotess' on server 'tcp://localhost:5432'.
+2026-07-07 08:06:13.894 -05:00 [ERR] An exception occurred while iterating over the results of a query for context type 'EcoBrotes.Infrastructure.DataSource.DataContext'.
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure.
+ ---> Npgsql.NpgsqlException (0x80004005): Failed to connect to 127.0.0.1:5432
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Npgsql.TaskTimeoutAndCancellation.ExecuteAsync(Func`2 getTaskFunc, NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.RawOpen(SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|213_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|34_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure.
+ ---> Npgsql.NpgsqlException (0x80004005): Failed to connect to 127.0.0.1:5432
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Npgsql.TaskTimeoutAndCancellation.ExecuteAsync(Func`2 getTaskFunc, NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.RawOpen(SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|213_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|34_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2026-07-07 08:06:13.908 -05:00 [INF] Executed endpoint 'HTTP: GET /api/jornadas/'
+2026-07-07 08:06:13.911 -05:00 [ERR] Error: An exception has been raised that is likely due to a transient failure.
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure.
+ ---> Npgsql.NpgsqlException (0x80004005): Failed to connect to 127.0.0.1:5432
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Npgsql.TaskTimeoutAndCancellation.ExecuteAsync(Func`2 getTaskFunc, NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.RawOpen(SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|213_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|34_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at EcoBrotes.Infrastructure.Adapters.GenericRepository`1.GetManyAsync(Expression`1 filter, Func`2 orderBy, String includeStringProperties, Boolean isTracking) in d:\Proyectos\ADN-Ceiba\NetCore8.1.0.0\EcoBrotes\EcoBrotes.Infrastructure\Adapters\GenericRepository.cs:line 44
+   at EcoBrotes.Infrastructure.JornadasReforestacion.Adapters.JornadaReforestacionRepository.GetFilteredAsync(Nullable`1 zonaId, IEnumerable`1 estados, Nullable`1 fechaDesde, Nullable`1 fechaHasta, Int32 page, Int32 pageSize) in d:\Proyectos\ADN-Ceiba\NetCore8.1.0.0\EcoBrotes\EcoBrotes.Infrastructure\JornadasReforestacion\Adapters\JornadaReforestacionRepository.cs:line 67
+   at EcoBrotes.Application.Jornadas.Query.GetJornadasHandler.Handle(GetJornadasQuery request, CancellationToken cancellationToken) in D:\Proyectos\ADN-Ceiba\NetCore8.1.0.0\EcoBrotes\EcoBrotes.Application\Jornadas\Query\GetJornadasQuery.cs:line 25
+   at EcoBrotes.Api.ApiHandlers.JornadaApi.<>c.<<MapJornada>b__0_1>d.MoveNext() in d:\Proyectos\ADN-Ceiba\NetCore8.1.0.0\EcoBrotes\EcoBrotes.Api\ApiHandlers\JornadaApi.cs:line 56
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<TaskOfTToValueTaskOfObject>g__ExecuteAwaited|92_0[T](Task`1 task)
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<ExecuteValueTaskOfObject>g__ExecuteAwaited|129_0(ValueTask`1 valueTask, HttpContext httpContext, JsonTypeInfo`1 jsonTypeInfo)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at EcoBrotes.Api.Middleware.AppExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in d:\Proyectos\ADN-Ceiba\NetCore8.1.0.0\EcoBrotes\EcoBrotes.Api\Middleware\ExceptionHandler.cs:line 27
+2026-07-07 08:06:13.968 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/api/jornadas/ - 500 null application/json 4443.1476ms
+2026-07-07 08:06:17.287 -05:00 [ERR] Health check DataContext with status "Unhealthy" completed after 4133.8342ms with message 'null'
+2026-07-07 08:06:47.226 -05:00 [ERR] Health check DataContext with status "Unhealthy" completed after 4062.1623ms with message 'null'
+2026-07-07 08:07:00.416 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/api/jornadas/ - null null
+2026-07-07 08:07:00.424 -05:00 [INF] Executing endpoint 'HTTP: GET /api/jornadas/'
+2026-07-07 08:07:04.484 -05:00 [ERR] An error occurred using the connection to database 'ecobrotess' on server 'tcp://localhost:5432'.
+2026-07-07 08:07:04.488 -05:00 [ERR] An exception occurred while iterating over the results of a query for context type 'EcoBrotes.Infrastructure.DataSource.DataContext'.
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure.
+ ---> Npgsql.NpgsqlException (0x80004005): Failed to connect to 127.0.0.1:5432
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Npgsql.TaskTimeoutAndCancellation.ExecuteAsync(Func`2 getTaskFunc, NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.RawOpen(SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|213_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|34_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure.
+ ---> Npgsql.NpgsqlException (0x80004005): Failed to connect to 127.0.0.1:5432
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Npgsql.TaskTimeoutAndCancellation.ExecuteAsync(Func`2 getTaskFunc, NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.RawOpen(SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|213_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|34_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2026-07-07 08:07:04.493 -05:00 [INF] Executed endpoint 'HTTP: GET /api/jornadas/'
+2026-07-07 08:07:04.494 -05:00 [ERR] Error: An exception has been raised that is likely due to a transient failure.
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure.
+ ---> Npgsql.NpgsqlException (0x80004005): Failed to connect to 127.0.0.1:5432
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Npgsql.TaskTimeoutAndCancellation.ExecuteAsync(Func`2 getTaskFunc, NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.RawOpen(SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|213_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|34_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at EcoBrotes.Infrastructure.Adapters.GenericRepository`1.GetManyAsync(Expression`1 filter, Func`2 orderBy, String includeStringProperties, Boolean isTracking) in d:\Proyectos\ADN-Ceiba\NetCore8.1.0.0\EcoBrotes\EcoBrotes.Infrastructure\Adapters\GenericRepository.cs:line 44
+   at EcoBrotes.Infrastructure.JornadasReforestacion.Adapters.JornadaReforestacionRepository.GetFilteredAsync(Nullable`1 zonaId, IEnumerable`1 estados, Nullable`1 fechaDesde, Nullable`1 fechaHasta, Int32 page, Int32 pageSize) in d:\Proyectos\ADN-Ceiba\NetCore8.1.0.0\EcoBrotes\EcoBrotes.Infrastructure\JornadasReforestacion\Adapters\JornadaReforestacionRepository.cs:line 67
+   at EcoBrotes.Application.Jornadas.Query.GetJornadasHandler.Handle(GetJornadasQuery request, CancellationToken cancellationToken) in D:\Proyectos\ADN-Ceiba\NetCore8.1.0.0\EcoBrotes\EcoBrotes.Application\Jornadas\Query\GetJornadasQuery.cs:line 25
+   at EcoBrotes.Api.ApiHandlers.JornadaApi.<>c.<<MapJornada>b__0_1>d.MoveNext() in d:\Proyectos\ADN-Ceiba\NetCore8.1.0.0\EcoBrotes\EcoBrotes.Api\ApiHandlers\JornadaApi.cs:line 56
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<TaskOfTToValueTaskOfObject>g__ExecuteAwaited|92_0[T](Task`1 task)
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<ExecuteValueTaskOfObject>g__ExecuteAwaited|129_0(ValueTask`1 valueTask, HttpContext httpContext, JsonTypeInfo`1 jsonTypeInfo)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at EcoBrotes.Api.Middleware.AppExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in d:\Proyectos\ADN-Ceiba\NetCore8.1.0.0\EcoBrotes\EcoBrotes.Api\Middleware\ExceptionHandler.cs:line 27
+2026-07-07 08:07:04.504 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/api/jornadas/ - 500 null application/json 4087.3548ms
+2026-07-07 08:07:44.512 -05:00 [INF] Now listening on: http://localhost:5290
+2026-07-07 08:07:44.525 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-07-07 08:07:44.526 -05:00 [INF] Hosting environment: Development
+2026-07-07 08:07:44.527 -05:00 [INF] Content root path: d:\Proyectos\ADN-Ceiba\NetCore8.1.0.0\EcoBrotes\EcoBrotes.Api
+2026-07-07 08:08:07.358 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/api/jornadas/ - null null
+2026-07-07 08:08:07.375 -05:00 [WRN] Failed to determine the https port for redirect.
+2026-07-07 08:08:07.467 -05:00 [INF] Executing endpoint 'HTTP: GET /api/jornadas/'
+2026-07-07 08:08:07.578 -05:00 [INF] Setting HTTP status code 200.
+2026-07-07 08:08:07.582 -05:00 [INF] Writing value of type 'List`1' as Json.
+2026-07-07 08:08:07.586 -05:00 [INF] Executed endpoint 'HTTP: GET /api/jornadas/'
+2026-07-07 08:08:07.592 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/api/jornadas/ - 200 null application/json; charset=utf-8 234.7029ms
+2026-07-07 08:39:32.005 -05:00 [INF] Executed DbCommand (226ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE DATABASE ecobrotess;
+2026-07-07 08:39:32.198 -05:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2026-07-07 08:39:32.281 -05:00 [INF] Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2026-07-07 08:39:32.286 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-07-07 08:39:32.296 -05:00 [INF] Applying migration '20260707131634_InitialCreate'.
+2026-07-07 08:39:32.325 -05:00 [ERR] Failed executing DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Customer" (
+    "Id" uuid NOT NULL,
+    "Name" character varying(100) NOT NULL,
+    "TypeCustomer" tinyint NOT NULL,
+    "CreatedOn" timestamp with time zone NOT NULL,
+    "LastModifiedOn" timestamp with time zone NOT NULL,
+    CONSTRAINT "PK_Customer" PRIMARY KEY ("Id")
+);
+2026-07-07 08:43:38.380 -05:00 [INF] Executed DbCommand (222ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE DATABASE ecobrotess;
+2026-07-07 08:43:38.610 -05:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2026-07-07 08:43:38.703 -05:00 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2026-07-07 08:43:38.708 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-07-07 08:43:38.722 -05:00 [INF] Applying migration '20260707131634_InitialCreate'.
+2026-07-07 08:43:38.763 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Customer" (
+    "Id" uuid NOT NULL,
+    "Name" character varying(100) NOT NULL,
+    "TypeCustomer" smallint NOT NULL,
+    "CreatedOn" timestamp with time zone NOT NULL,
+    "LastModifiedOn" timestamp with time zone NOT NULL,
+    CONSTRAINT "PK_Customer" PRIMARY KEY ("Id")
+);
+2026-07-07 08:43:38.771 -05:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "EspecieArboreaEntity" (
+    "Id" uuid NOT NULL,
+    "Name" character varying(150) NOT NULL,
+    "ScientificName" text NOT NULL,
+    "MaxHeightMeters" numeric(18,2) NOT NULL,
+    "CreatedOn" timestamp with time zone NOT NULL,
+    "LastModifiedOn" timestamp with time zone NOT NULL,
+    CONSTRAINT "PK_EspecieArboreaEntity" PRIMARY KEY ("Id")
+);
+2026-07-07 08:43:38.776 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Product" (
+    "Id" uuid NOT NULL,
+    "Name" character varying(100) NOT NULL,
+    "ApplyIva" boolean NOT NULL,
+    "Value" numeric(18,2) NOT NULL,
+    "CreatedOn" timestamp with time zone NOT NULL,
+    "LastModifiedOn" timestamp with time zone NOT NULL,
+    CONSTRAINT "PK_Product" PRIMARY KEY ("Id")
+);
+2026-07-07 08:43:38.782 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "ZonaUrbanaEntity" (
+    "Id" uuid NOT NULL,
+    "Name" character varying(100) NOT NULL,
+    "CreatedOn" timestamp with time zone NOT NULL,
+    "LastModifiedOn" timestamp with time zone NOT NULL,
+    CONSTRAINT "PK_ZonaUrbanaEntity" PRIMARY KEY ("Id")
+);
+2026-07-07 08:43:38.791 -05:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "JornadaReforestacion" (
+    "Id" uuid NOT NULL,
+    "Name" character varying(200) NOT NULL,
+    "ZonaId" uuid NOT NULL,
+    "ScheduledDate" timestamp with time zone NOT NULL,
+    "TreeMeta" integer NOT NULL,
+    "VolunteerCapacity" integer NOT NULL,
+    "State" smallint NOT NULL,
+    "CodigoUnico" text NOT NULL,
+    "ZonaUrbanaId" uuid NOT NULL,
+    "CreatedOn" timestamp with time zone NOT NULL,
+    "LastModifiedOn" timestamp with time zone NOT NULL,
+    CONSTRAINT "PK_JornadaReforestacion" PRIMARY KEY ("Id"),
+    CONSTRAINT "FK_JornadaReforestacion_ZonaUrbanaEntity_ZonaId" FOREIGN KEY ("ZonaId") REFERENCES "ZonaUrbanaEntity" ("Id") ON DELETE CASCADE
+);
+2026-07-07 08:43:38.797 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "DetalleArbolJornada" (
+    "Id" uuid NOT NULL,
+    "JornadaReforestacionId" uuid NOT NULL,
+    "EspecieArboreaId" uuid NOT NULL,
+    "Quantity" integer NOT NULL,
+    "CreatedOn" timestamp with time zone NOT NULL,
+    "LastModifiedOn" timestamp with time zone NOT NULL,
+    CONSTRAINT "PK_DetalleArbolJornada" PRIMARY KEY ("Id"),
+    CONSTRAINT "FK_DetalleArbolJornada_EspecieArboreaEntity_EspecieArboreaId" FOREIGN KEY ("EspecieArboreaId") REFERENCES "EspecieArboreaEntity" ("Id") ON DELETE RESTRICT,
+    CONSTRAINT "FK_DetalleArbolJornada_JornadaReforestacion_JornadaReforestaci~" FOREIGN KEY ("JornadaReforestacionId") REFERENCES "JornadaReforestacion" ("Id") ON DELETE CASCADE
+);
+2026-07-07 08:43:38.801 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_DetalleArbolJornada_EspecieArboreaId" ON "DetalleArbolJornada" ("EspecieArboreaId");
+2026-07-07 08:43:38.807 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_DetalleArbolJornada_JornadaReforestacionId" ON "DetalleArbolJornada" ("JornadaReforestacionId");
+2026-07-07 08:43:38.812 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_JornadaReforestacion_ZonaId" ON "JornadaReforestacion" ("ZonaId");
+2026-07-07 08:43:38.815 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20260707131634_InitialCreate', '8.0.4');
+2026-07-07 08:44:09.307 -05:00 [INF] Now listening on: http://localhost:5290
+2026-07-07 08:44:09.327 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-07-07 08:44:09.329 -05:00 [INF] Hosting environment: Development
+2026-07-07 08:44:09.330 -05:00 [INF] Content root path: d:\Proyectos\ADN-Ceiba\NetCore8.1.0.0\EcoBrotes\EcoBrotes.Api
+2026-07-07 08:44:28.691 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/api/jornadas/ - null null
+2026-07-07 08:44:28.709 -05:00 [WRN] Failed to determine the https port for redirect.
+2026-07-07 08:44:28.798 -05:00 [INF] Executing endpoint 'HTTP: GET /api/jornadas/'
+2026-07-07 08:44:29.030 -05:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT j."Id", j."CodigoUnico", j."CreatedOn", j."LastModifiedOn", j."Name", j."ScheduledDate", j."State", j."TreeMeta", j."VolunteerCapacity", j."ZonaId", j."ZonaUrbanaId"
+FROM "JornadaReforestacion" AS j
+ORDER BY j."ScheduledDate"
+2026-07-07 08:44:29.042 -05:00 [INF] Setting HTTP status code 200.
+2026-07-07 08:44:29.048 -05:00 [INF] Writing value of type 'List`1' as Json.
+2026-07-07 08:44:29.052 -05:00 [INF] Executed endpoint 'HTTP: GET /api/jornadas/'
+2026-07-07 08:44:29.058 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/api/jornadas/ - 200 null application/json; charset=utf-8 367.2095ms
+2026-07-07 08:47:31.328 -05:00 [INF] Now listening on: http://localhost:5290
+2026-07-07 08:47:31.348 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-07-07 08:47:31.349 -05:00 [INF] Hosting environment: Development
+2026-07-07 08:47:31.351 -05:00 [INF] Content root path: d:\Proyectos\ADN-Ceiba\NetCore8.1.0.0\EcoBrotes\EcoBrotes.Api
+2026-07-07 08:47:59.206 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/api/jornadas/ - null null
+2026-07-07 08:47:59.221 -05:00 [WRN] Failed to determine the https port for redirect.
+2026-07-07 08:47:59.305 -05:00 [INF] Executing endpoint 'HTTP: GET /api/jornadas/'
+2026-07-07 08:47:59.532 -05:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT j."Id", j."CodigoUnico", j."CreatedOn", j."LastModifiedOn", j."Name", j."ScheduledDate", j."State", j."TreeMeta", j."VolunteerCapacity", j."ZonaId", j."ZonaUrbanaId"
+FROM "JornadaReforestacion" AS j
+ORDER BY j."ScheduledDate"
+2026-07-07 08:47:59.545 -05:00 [INF] Setting HTTP status code 200.
+2026-07-07 08:47:59.550 -05:00 [INF] Writing value of type 'List`1' as Json.
+2026-07-07 08:47:59.553 -05:00 [INF] Executed endpoint 'HTTP: GET /api/jornadas/'
+2026-07-07 08:47:59.560 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/api/jornadas/ - 200 null application/json; charset=utf-8 354.9151ms
+2026-07-07 08:49:14.785 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/swagger - null null
+2026-07-07 08:49:14.791 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/swagger - 301 0 null 5.6993ms
+2026-07-07 08:49:14.797 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/swagger/index.html - null null
+2026-07-07 08:49:14.863 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/swagger/index.html - 200 null text/html;charset=utf-8 66.6512ms
+2026-07-07 08:49:14.935 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/swagger/swagger-ui.css - null null
+2026-07-07 08:49:14.937 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/swagger/index.css - null null
+2026-07-07 08:49:14.938 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/swagger/swagger-ui-bundle.js - null null
+2026-07-07 08:49:14.938 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/swagger/swagger-ui-standalone-preset.js - null null
+2026-07-07 08:49:14.940 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/swagger/index.js - null null
+2026-07-07 08:49:14.948 -05:00 [INF] Sending file. Request path: '/index.css'. Physical path: 'N/A'
+2026-07-07 08:49:14.950 -05:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2026-07-07 08:49:14.953 -05:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2026-07-07 08:49:14.955 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/swagger/index.js - 200 null application/javascript;charset=utf-8 15.504ms
+2026-07-07 08:49:14.956 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/swagger/index.css - 200 202 text/css 18.8556ms
+2026-07-07 08:49:14.957 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/swagger/swagger-ui.css - 200 152035 text/css 22.2474ms
+2026-07-07 08:49:14.960 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/swagger/swagger-ui-standalone-preset.js - 200 230007 text/javascript 21.0086ms
+2026-07-07 08:49:14.991 -05:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2026-07-07 08:49:14.993 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/swagger/swagger-ui-bundle.js - 200 1426050 text/javascript 54.9244ms
+2026-07-07 08:49:15.083 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/swagger/v1/swagger.json - null null
+2026-07-07 08:49:15.092 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/swagger/favicon-32x32.png - null null
+2026-07-07 08:49:15.092 -05:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2026-07-07 08:49:15.098 -05:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2026-07-07 08:49:15.101 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/swagger/favicon-32x32.png - 200 628 image/png 8.4322ms
+2026-07-07 08:49:15.195 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 111.6047ms
+2026-07-07 10:10:38.986 -05:00 [INF] Now listening on: http://localhost:5290
+2026-07-07 10:10:39.005 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-07-07 10:10:39.007 -05:00 [INF] Hosting environment: Development
+2026-07-07 10:10:39.008 -05:00 [INF] Content root path: D:\Proyectos\ADN-Ceiba\NetCore8.1.0.0\EcoBrotes\EcoBrotes.Api
+2026-07-07 10:10:47.643 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/ - null null
+2026-07-07 10:10:47.671 -05:00 [WRN] Failed to determine the https port for redirect.
+2026-07-07 10:10:47.819 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/ - 404 0 null 176.8119ms
+2026-07-07 10:10:47.829 -05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5290/, Response status code: 404
+2026-07-07 10:10:54.441 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/swagger - null null
+2026-07-07 10:10:54.447 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/swagger - 301 0 null 6.5498ms
+2026-07-07 10:10:54.453 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/swagger/index.html - null null
+2026-07-07 10:10:54.507 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/swagger/index.html - 200 null text/html;charset=utf-8 53.6607ms
+2026-07-07 10:10:54.514 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/swagger/index.css - null null
+2026-07-07 10:10:54.515 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/swagger/swagger-ui-bundle.js - null null
+2026-07-07 10:10:54.515 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/swagger/swagger-ui.css - null null
+2026-07-07 10:10:54.516 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/swagger/swagger-ui-standalone-preset.js - null null
+2026-07-07 10:10:54.516 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/swagger/index.js - null null
+2026-07-07 10:10:54.524 -05:00 [INF] Sending file. Request path: '/index.css'. Physical path: 'N/A'
+2026-07-07 10:10:54.531 -05:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2026-07-07 10:10:54.533 -05:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2026-07-07 10:10:54.537 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/swagger/index.js - 200 null application/javascript;charset=utf-8 21.1925ms
+2026-07-07 10:10:54.537 -05:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2026-07-07 10:10:54.539 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/swagger/index.css - 200 202 text/css 24.2359ms
+2026-07-07 10:10:54.542 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/swagger/swagger-ui.css - 200 152035 text/css 27.1331ms
+2026-07-07 10:10:54.543 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/swagger/swagger-ui-standalone-preset.js - 200 230007 text/javascript 27.5858ms
+2026-07-07 10:10:54.549 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/swagger/swagger-ui-bundle.js - 200 1426050 text/javascript 34.3811ms
+2026-07-07 10:10:54.627 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/swagger/v1/swagger.json - null null
+2026-07-07 10:10:54.633 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/swagger/favicon-32x32.png - null null
+2026-07-07 10:10:54.636 -05:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2026-07-07 10:10:54.636 -05:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2026-07-07 10:10:54.638 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/swagger/favicon-32x32.png - 200 628 image/png 5.2394ms
+2026-07-07 10:10:54.715 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 88.2959ms
+2026-07-07 10:12:49.353 -05:00 [INF] Application is shutting down...
+2026-07-07 10:18:25.754 -05:00 [INF] Now listening on: http://localhost:5290
+2026-07-07 10:18:25.770 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-07-07 10:18:25.772 -05:00 [INF] Hosting environment: Development
+2026-07-07 10:18:25.773 -05:00 [INF] Content root path: D:\Proyectos\ADN-Ceiba\NetCore8.1.0.0\EcoBrotes\EcoBrotes.Api
+2026-07-07 10:18:29.452 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/swagger/index.html - null null
+2026-07-07 10:18:29.528 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/swagger/index.html - 200 null text/html;charset=utf-8 77.3877ms
+2026-07-07 10:18:29.547 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/swagger/index.js - null null
+2026-07-07 10:18:29.554 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/swagger/index.js - 200 null application/javascript;charset=utf-8 6.9653ms
+2026-07-07 10:18:29.645 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/swagger/v1/swagger.json - null null
+2026-07-07 10:18:29.658 -05:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2026-07-07 10:18:29.818 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 172.6564ms
+2026-07-07 10:19:21.492 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/api/jornadas?page=1&pageSize=20 - null null
+2026-07-07 10:19:21.495 -05:00 [WRN] Failed to determine the https port for redirect.
+2026-07-07 10:19:21.535 -05:00 [INF] Executing endpoint 'HTTP: GET /api/jornadas/'
+2026-07-07 10:19:21.900 -05:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT j."Id", j."CodigoUnico", j."CreatedOn", j."LastModifiedOn", j."Name", j."ScheduledDate", j."State", j."TreeMeta", j."VolunteerCapacity", j."ZonaId", j."ZonaUrbanaId"
+FROM "JornadaReforestacion" AS j
+ORDER BY j."ScheduledDate"
+2026-07-07 10:19:22.021 -05:00 [INF] Executed DbCommand (9ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT z."Id", z."CreatedOn", z."LastModifiedOn", z."Name"
+FROM "ZonaUrbanaEntity" AS z
+WHERE z."Id" = @__id_0
+LIMIT 1
+2026-07-07 10:19:22.047 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT z."Id", z."CreatedOn", z."LastModifiedOn", z."Name"
+FROM "ZonaUrbanaEntity" AS z
+WHERE z."Id" = @__id_0
+LIMIT 1
+2026-07-07 10:19:22.050 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT z."Id", z."CreatedOn", z."LastModifiedOn", z."Name"
+FROM "ZonaUrbanaEntity" AS z
+WHERE z."Id" = @__id_0
+LIMIT 1
+2026-07-07 10:19:22.053 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT z."Id", z."CreatedOn", z."LastModifiedOn", z."Name"
+FROM "ZonaUrbanaEntity" AS z
+WHERE z."Id" = @__id_0
+LIMIT 1
+2026-07-07 10:19:22.055 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT z."Id", z."CreatedOn", z."LastModifiedOn", z."Name"
+FROM "ZonaUrbanaEntity" AS z
+WHERE z."Id" = @__id_0
+LIMIT 1
+2026-07-07 10:19:22.057 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT z."Id", z."CreatedOn", z."LastModifiedOn", z."Name"
+FROM "ZonaUrbanaEntity" AS z
+WHERE z."Id" = @__id_0
+LIMIT 1
+2026-07-07 10:19:22.059 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT z."Id", z."CreatedOn", z."LastModifiedOn", z."Name"
+FROM "ZonaUrbanaEntity" AS z
+WHERE z."Id" = @__id_0
+LIMIT 1
+2026-07-07 10:19:22.061 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT z."Id", z."CreatedOn", z."LastModifiedOn", z."Name"
+FROM "ZonaUrbanaEntity" AS z
+WHERE z."Id" = @__id_0
+LIMIT 1
+2026-07-07 10:19:22.067 -05:00 [INF] Setting HTTP status code 200.
+2026-07-07 10:19:22.073 -05:00 [INF] Writing value of type 'List`1' as Json.
+2026-07-07 10:19:22.081 -05:00 [INF] Executed endpoint 'HTTP: GET /api/jornadas/'
+2026-07-07 10:19:22.089 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/api/jornadas?page=1&pageSize=20 - 200 null application/json; charset=utf-8 597.2399ms
+2026-07-07 10:33:16.526 -05:00 [INF] Application is shutting down...
+2026-07-07 10:39:33.363 -05:00 [INF] Executed DbCommand (37ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2026-07-07 10:39:33.399 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-07-07 10:39:33.473 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2026-07-07 10:39:33.535 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2026-07-07 10:39:33.537 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-07-07 10:39:33.550 -05:00 [INF] Applying migration '20260707153915_RemoveCustomerProductTables'.
+2026-07-07 10:39:33.576 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DROP TABLE "Customer";
+2026-07-07 10:39:33.580 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DROP TABLE "Product";
+2026-07-07 10:39:33.584 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20260707153915_RemoveCustomerProductTables', '8.0.4');
+2026-07-07 10:43:42.188 -05:00 [INF] Now listening on: http://localhost:5290
+2026-07-07 10:43:42.203 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-07-07 10:43:42.204 -05:00 [INF] Hosting environment: Development
+2026-07-07 10:43:42.205 -05:00 [INF] Content root path: D:\Proyectos\ADN-Ceiba\NetCore8.1.0.0\EcoBrotes\EcoBrotes.Api
+2026-07-07 10:44:02.140 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/api/especies - null null
+2026-07-07 10:44:02.156 -05:00 [WRN] Failed to determine the https port for redirect.
+2026-07-07 10:44:02.244 -05:00 [INF] Executing endpoint 'HTTP: GET /api/especies/'
+2026-07-07 10:44:02.462 -05:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT e."Id", e."CreatedOn", e."LastModifiedOn", e."MaxHeightMeters", e."Name", e."ScientificName"
+FROM "EspecieArboreaEntity" AS e
+2026-07-07 10:44:02.504 -05:00 [INF] Setting HTTP status code 200.
+2026-07-07 10:44:02.509 -05:00 [INF] Writing value of type 'SelectListIterator`2' as Json.
+2026-07-07 10:44:02.517 -05:00 [INF] Executed endpoint 'HTTP: GET /api/especies/'
+2026-07-07 10:44:02.524 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/api/especies - 200 null application/json; charset=utf-8 384.5374ms
+2026-07-07 10:44:06.430 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/api/zonas - null null
+2026-07-07 10:44:06.434 -05:00 [INF] Executing endpoint 'HTTP: GET /api/zonas/'
+2026-07-07 10:44:06.484 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT z."Id", z."CreatedOn", z."LastModifiedOn", z."Name"
+FROM "ZonaUrbanaEntity" AS z
+2026-07-07 10:44:06.486 -05:00 [INF] Setting HTTP status code 200.
+2026-07-07 10:44:06.488 -05:00 [INF] Writing value of type 'SelectListIterator`2' as Json.
+2026-07-07 10:44:06.490 -05:00 [INF] Executed endpoint 'HTTP: GET /api/zonas/'
+2026-07-07 10:44:06.492 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/api/zonas - 200 null application/json; charset=utf-8 61.5657ms
+2026-07-07 10:45:16.293 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/swagger/index.html - null null
+2026-07-07 10:45:16.353 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/swagger/index.html - 200 null text/html;charset=utf-8 60.0279ms
+2026-07-07 10:45:16.731 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/swagger/index.js - null null
+2026-07-07 10:45:16.735 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/swagger/index.js - 200 null application/javascript;charset=utf-8 3.5536ms
+2026-07-07 10:45:16.799 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/swagger/v1/swagger.json - null null
+2026-07-07 10:45:16.808 -05:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2026-07-07 10:45:16.901 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 102.843ms
+2026-07-07 10:45:25.032 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/api/especies - null null
+2026-07-07 10:45:25.035 -05:00 [INF] Executing endpoint 'HTTP: GET /api/especies/'
+2026-07-07 10:45:25.040 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT e."Id", e."CreatedOn", e."LastModifiedOn", e."MaxHeightMeters", e."Name", e."ScientificName"
+FROM "EspecieArboreaEntity" AS e
+2026-07-07 10:45:25.043 -05:00 [INF] Setting HTTP status code 200.
+2026-07-07 10:45:25.044 -05:00 [INF] Writing value of type 'SelectListIterator`2' as Json.
+2026-07-07 10:45:25.045 -05:00 [INF] Executed endpoint 'HTTP: GET /api/especies/'
+2026-07-07 10:45:25.047 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/api/especies - 200 null application/json; charset=utf-8 15.5214ms
+2026-07-07 10:51:48.865 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/api/zonas - null null
+2026-07-07 10:51:48.870 -05:00 [INF] Executing endpoint 'HTTP: GET /api/zonas/'
+2026-07-07 10:51:48.951 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT z."Id", z."CreatedOn", z."LastModifiedOn", z."Name"
+FROM "ZonaUrbanaEntity" AS z
+2026-07-07 10:51:48.953 -05:00 [INF] Setting HTTP status code 200.
+2026-07-07 10:51:48.954 -05:00 [INF] Writing value of type 'SelectListIterator`2' as Json.
+2026-07-07 10:51:48.954 -05:00 [INF] Executed endpoint 'HTTP: GET /api/zonas/'
+2026-07-07 10:51:48.956 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/api/zonas - 200 null application/json; charset=utf-8 90.9663ms
+2026-07-07 14:24:49.356 -05:00 [INF] Now listening on: http://localhost:5290
+2026-07-07 14:24:49.380 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-07-07 14:24:49.381 -05:00 [INF] Hosting environment: Development
+2026-07-07 14:24:49.381 -05:00 [INF] Content root path: D:\Proyectos\ADN-Ceiba\NetCore8.1.0.0\EcoBrotes\EcoBrotes.Api
+2026-07-07 14:25:09.579 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/swagger/index.html - null null
+2026-07-07 14:25:09.752 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/swagger/index.html - 200 null text/html;charset=utf-8 176.366ms
+2026-07-07 14:25:10.041 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/swagger/index.js - null null
+2026-07-07 14:25:10.047 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/swagger/index.js - 200 null application/javascript;charset=utf-8 5.1277ms
+2026-07-07 14:25:10.163 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/swagger/v1/swagger.json - null null
+2026-07-07 14:25:10.181 -05:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2026-07-07 14:25:10.575 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 411.3039ms
+2026-07-07 14:33:01.136 -05:00 [INF] Now listening on: http://localhost:5290
+2026-07-07 14:33:01.153 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-07-07 14:33:01.154 -05:00 [INF] Hosting environment: Development
+2026-07-07 14:33:01.154 -05:00 [INF] Content root path: D:\Proyectos\ADN-Ceiba\NetCore8.1.0.0\EcoBrotes\EcoBrotes.Api
+2026-07-07 14:33:42.857 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/swagger/index.html - null null
+2026-07-07 14:33:42.958 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/swagger/index.html - 200 null text/html;charset=utf-8 102.607ms
+2026-07-07 14:33:43.485 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/swagger/index.js - null null
+2026-07-07 14:33:43.487 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/swagger/index.js - 200 null application/javascript;charset=utf-8 1.4399ms
+2026-07-07 14:33:43.549 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5290/swagger/v1/swagger.json - null null
+2026-07-07 14:33:43.554 -05:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2026-07-07 14:33:43.766 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5290/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 217.1114ms
+2026-07-07 14:47:50.647 -05:00 [INF] Now listening on: http://localhost:5290
+2026-07-07 14:47:50.659 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-07-07 14:47:50.660 -05:00 [INF] Hosting environment: Development
+2026-07-07 14:47:50.660 -05:00 [INF] Content root path: D:\Proyectos\ADN-Ceiba\NetCore8.1.0.0\EcoBrotes\EcoBrotes.Api
+2026-07-07 14:52:04.957 -05:00 [INF] Now listening on: http://localhost:5290
+2026-07-07 14:52:04.969 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-07-07 14:52:04.970 -05:00 [INF] Hosting environment: Development
+2026-07-07 14:52:04.970 -05:00 [INF] Content root path: D:\Proyectos\ADN-Ceiba\NetCore8.1.0.0\EcoBrotes\EcoBrotes.Api
+2026-07-07 14:53:39.025 -05:00 [INF] Now listening on: http://localhost:5290
+2026-07-07 14:53:39.036 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-07-07 14:53:39.037 -05:00 [INF] Hosting environment: Development
+2026-07-07 14:53:39.037 -05:00 [INF] Content root path: D:\Proyectos\ADN-Ceiba\NetCore8.1.0.0\EcoBrotes\EcoBrotes.Api
