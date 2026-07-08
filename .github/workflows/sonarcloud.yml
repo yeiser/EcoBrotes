@@ -48,7 +48,7 @@ jobs:
             }
             Write-Host "Merging coverage files using ReportGenerator..."
             $fileList = ($files | ForEach-Object { $_.FullName }) -join ";"
-            dotnet reportgenerator "-reports:$fileList" "-targetdir:coverage" "-reporttypes:Opencover"
+            reportgenerator "-reports:$fileList" "-targetdir:coverage" "-reporttypes:Opencover"
             Write-Host "Coverage files merged"
           } else {
             Write-Host "WARNING: No .opencover.xml files found"
