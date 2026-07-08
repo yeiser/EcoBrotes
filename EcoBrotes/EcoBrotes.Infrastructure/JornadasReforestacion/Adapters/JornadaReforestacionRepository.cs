@@ -29,8 +29,8 @@ namespace EcoBrotes.Infrastructure.JornadasReforestacion.Adapters
             if (zonaId.HasValue)
             {
                 var zonaIdValue = zonaId.Value;
-                var zonaFilter = (Expression<Func<JornadaEntity, bool>>)(j => j.ZonaUrbanaId == zonaIdValue);
-                filter = filter == null ? zonaFilter : CombineAnd(filter, zonaFilter);
+                // First predicate evaluated: filter is still null, so assign it directly.
+                filter = j => j.ZonaUrbanaId == zonaIdValue;
             }
 
             if (estados != null && estados.Any())
@@ -78,8 +78,8 @@ namespace EcoBrotes.Infrastructure.JornadasReforestacion.Adapters
             if (zonaId.HasValue)
             {
                 var zonaIdValue = zonaId.Value;
-                var zonaFilter = (Expression<Func<JornadaEntity, bool>>)(j => j.ZonaUrbanaId == zonaIdValue);
-                filter = filter == null ? zonaFilter : CombineAnd(filter, zonaFilter);
+                // First predicate evaluated: filter is still null, so assign it directly.
+                filter = j => j.ZonaUrbanaId == zonaIdValue;
             }
 
             if (estados != null && estados.Any())
