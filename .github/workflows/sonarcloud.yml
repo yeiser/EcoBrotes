@@ -39,13 +39,16 @@ jobs:
         run: |
           dotnet restore EcoBrotes.sln
           dotnet build EcoBrotes.sln --no-restore
-          dotnet test EcoBrotes.sln --no-build --verbosity minimal /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput="./TestResults/coverage.opencover.xml"
+          dotnet test EcoBrotes.sln --no-build --verbosity minimal /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=coverage
+
+      - name: Verify coverage file exists
+        run: if (Test-Path "coverage.opencover.xml") { Write-Host "Coverage file found" } else { Write-Host "Coverage file NOT found" }
 
       - name: Upload coverage report
         uses: actions/upload-artifact@v4
         with:
           name: coverage-report
-          path: TestResults/coverage.opencover.xml
+          path: coverage.opencover.xml
 
       - name: End SonarCloud analysis
         env:
