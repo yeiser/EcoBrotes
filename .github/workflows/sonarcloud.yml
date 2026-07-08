@@ -27,15 +27,18 @@ jobs:
       - name: Install SonarScanner
         run: dotnet tool install --global dotnet-sonarscanner
 
+      - name: Install ReportGenerator
+        run: dotnet tool install --global dotnet-reportgenerator-globaltool
+
       - name: Begin SonarCloud analysis
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: dotnet sonarscanner begin /k:EcoBrotes /n:EcoBrotes.NET /o:yeiser /d:sonar.token=$env:SONAR_TOKEN /d:sonar.host.url=https://sonarcloud.io /d:sonar.coverage.exclusions="**/*Tests/**/*.cs"
+        run: dotnet sonarscanner begin /k:EcoBrotes /n:EcoBrotes.NET /o:yeiser /d:sonar.token=$env:SONAR_TOKEN /d:sonar.host.url=https://sonarcloud.io /d:sonar.coverage.exclusions="**/*Tests/**/*.cs" /d:sonar.coverage.reports.path=coverage/coverage.opencover.xml
 
       - name: Build and test with coverage
         run: dotnet test EcoBrotes.sln --no-build --verbosity minimal /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutputDirectory=.
 
-      - name: Find coverage files
+      - name: Find and merge coverage files
         run: |
           Write-Host "Searching for coverage files in all subdirectories..."
           $files = Get-ChildItem -Recurse -Filter "*.opencover.xml" -ErrorAction SilentlyContinue
@@ -43,8 +46,10 @@ jobs:
             foreach ($file in $files) {
               Write-Host "Found: $($file.FullName)"
             }
-            Copy-Item -Path $files[0].FullName -Destination "coverage.opencover.xml" -Force
-            Write-Host "Copied first coverage file to root"
+            Write-Host "Merging coverage files using ReportGenerator..."
+            $fileList = ($files | ForEach-Object { $_.FullName }) -join ";"
+            dotnet reportgenerator "-reports:$fileList" "-targetdir:coverage" "-reporttypes:Opencover"
+            Write-Host "Coverage files merged"
           } else {
             Write-Host "WARNING: No .opencover.xml files found"
           }
