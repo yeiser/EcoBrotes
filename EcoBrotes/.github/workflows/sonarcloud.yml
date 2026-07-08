@@ -1,76 +1,47 @@
-name: SonarCloud Analysis
-
+name: SonarQube
 on:
   push:
     branches:
       - master
-      - main
   pull_request:
     types: [opened, synchronize, reopened]
-
 jobs:
-  sonarcloud:
-    name: SonarCloud Analysis
-    runs-on: ubuntu-latest
-
+  build:
+    name: Build and analyze
+    runs-on: windows-latest
     steps:
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v4
+      - name: Set up JDK 17
+        uses: actions/setup-java@c1e323688fd81a25caa38c78aa6df2d33d3e20d9 # v4.8.0
         with:
-          dotnet-version: '8.0.x'
-
-      - name: Checkout code
-        uses: actions/checkout@v4
+          java-version: 17
+          distribution: 'zulu' # Alternative distribution options are available.
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
         with:
-          fetch-depth: 0  # Shallow clones should be disabled for better analysis
-
-      - name: Cache SonarCloud packages
-        uses: actions/cache@v4
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+      - name: Cache SonarQube Cloud packages
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
         with:
-          path: ~/sonar/cache
+          path: ~\sonar\cache
           key: ${{ runner.os }}-sonar
           restore-keys: ${{ runner.os }}-sonar
-
-      - name: Cache SonarCloud Scanner
-        uses: actions/cache@v4
+      - name: Cache SonarQube Cloud scanner
+        id: cache-sonar-scanner
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
         with:
-          path: ~/.sonar/cache
+          path: ${{ runner.temp }}\scanner
           key: ${{ runner.os }}-sonar-scanner
           restore-keys: ${{ runner.os }}-sonar-scanner
-
-      - name: Install SonarCloud Scanner
-        run: dotnet tool update dotnet-sonarscanner --global
-
-      - name: Install Coverlet Collector
-        run: dotnet tool install --global coverlet.console
-
-      - name: Begin SonarCloud analysis
+      - name: Install SonarQube Cloud scanner
+        if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
+        shell: powershell
+        run: |
+          New-Item -Path ${{ runner.temp }}\scanner -ItemType Directory
+          dotnet tool update dotnet-sonarscanner --tool-path ${{ runner.temp }}\scanner
+      - name: Build and analyze
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        shell: powershell
         run: |
-          dotnet sonarscanner begin \
-            /k:"EcoBrotes" \
-            /o:"yeiser" \
-            /d:sonar.login="${SONAR_TOKEN}" \
-            /d:sonar.projectName="EcoBrotes.NET" \
-            /d:sonar.coverage.exclusions="**/*Tests/**/*.cs,**/*Test/**/*.cs"
-
-      - name: Restore dependencies
-        run: dotnet restore EcoBrotes/EcoBrotes.sln
-
-      - name: Build EcoBrotes.NET
-        run: dotnet build EcoBrotes/EcoBrotes.sln --no-restore
-
-      - name: Run tests with coverage
-        run: |
-          dotnet test EcoBrotes/EcoBrotes.sln \
-            --no-build \
-            --logger "trx;LogFileName=test-results.trx" \
-            /p:CollectCoverage=true \
-            /p:CoverletOutputFormat=opencover \
-            /p:CoverletOutput="./TestResults/coverage.opencover.xml"
-
-      - name: End SonarCloud analysis
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: dotnet sonarscanner end /d:sonar.login="${SONAR_TOKEN}"
+          ${{ runner.temp }}\scanner\dotnet-sonarscanner begin /k:"yeiser_EcoBrotes" /o:"yeiser" /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+          dotnet build
+          ${{ runner.temp }}\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
