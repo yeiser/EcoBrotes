@@ -38,10 +38,10 @@ jobs:
         run: |
           dotnet restore EcoBrotes.sln
           dotnet build EcoBrotes.sln --no-restore
-          dotnet test EcoBrotes.sln --no-build --verbosity minimal ^
-            --collect:"XPlat Code Coverage" ^
-            /p:CollectCoverage=true ^
-            /p:CoverletOutputFormat=opencover ^
+          dotnet test EcoBrotes.sln --no-build --verbosity minimal `
+            --collect:"XPlat Code Coverage" `
+            /p:CollectCoverage=true `
+            /p:CoverletOutputFormat=opencover `
             /p:CoverletOutputDirectory=.
 
       - name: Find coverage file
