@@ -33,13 +33,7 @@ jobs:
         run: dotnet sonarscanner begin /k:EcoBrotes /n:EcoBrotes.NET /o:yeiser /d:sonar.token=$env:SONAR_TOKEN /d:sonar.host.url=https://sonarcloud.io /d:sonar.coverage.exclusions="**/*Tests/**/*.cs"
 
       - name: Build and test with coverage
-        run: |
-          dotnet restore EcoBrotes.sln
-          dotnet build EcoBrotes.sln --no-restore
-          dotnet test EcoBrotes.sln --no-build --verbosity minimal ^
-            /p:CollectCoverage=true ^
-            /p:CoverletOutputFormat=opencover ^
-            /p:CoverletOutputDirectory=.
+        run: dotnet test EcoBrotes.sln --no-build --verbosity minimal /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutputDirectory=.
 
       - name: Find coverage files
         run: |
