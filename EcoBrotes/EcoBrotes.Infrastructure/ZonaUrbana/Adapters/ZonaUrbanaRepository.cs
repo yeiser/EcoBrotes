@@ -42,7 +42,7 @@ namespace EcoBrotes.Infrastructure.ZonaUrbana.Adapters
             // Efficient query with filter - database does the work
             return await context.Set<ZonaUrbanaEntity>()
                 .Where(ActiveFilter)
-                .FirstOrDefaultAsync(z => z.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
+                .FirstOrDefaultAsync(z => z.Name.ToLower() == name.ToLower());
         }
 
         public async Task DeactivateAsync(Guid id)

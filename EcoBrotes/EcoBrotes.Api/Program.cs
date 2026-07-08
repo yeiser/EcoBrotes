@@ -33,7 +33,7 @@ builder.Services.AddDbContext<DataContext>(opts =>
     else
     {
         var connectionString = config.GetConnectionString("db");
-        opts.UseNpgsql(connectionString);
+        opts.UseNpgsql(connectionString, npgsql => npgsql.EnableRetryOnFailure());
     }
 });
 
@@ -61,6 +61,17 @@ builder.Host.UseSerilog((_, loggerconfiguration) =>
 SelfLog.Enable(Console.Error);
 
 var app = builder.Build();
+
+// Apply pending EF Core migrations at startup when using a relational database.
+// Skipped automatically for the in-memory provider used by integration tests.
+using (var scope = app.Services.CreateScope())
+{
+    var dataContext = scope.ServiceProvider.GetRequiredService<DataContext>();
+    if (dataContext.Database.IsRelational())
+    {
+        dataContext.Database.Migrate();
+    }
+}
 
 if (app.Environment.IsDevelopment())
 {

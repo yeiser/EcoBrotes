@@ -42,7 +42,7 @@ namespace EcoBrotes.Infrastructure.EspecieArborea.Adapters
             // Efficient query with filter - database does the work
             return await context.Set<EspecieArboreaEntity>()
                 .Where(ActiveFilter)
-                .FirstOrDefaultAsync(e => e.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
+                .FirstOrDefaultAsync(e => e.Name.ToLower() == name.ToLower());
         }
 
         public async Task DeactivateAsync(Guid id)
