@@ -1,0 +1,14 @@
+services:
+  ecobrotess-api:
+    build:
+      context: .
+      dockerfile: EcoBrotes/EcoBrotes.Api/Dockerfile
+    container_name: ecobrotess-api
+    ports:
+      - "8080:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__db=Host=172.27.176.1;Port=5432;Database=ecobrotess;Username=postgres;Password=postgres
+      - UseInMemoryDatabase=false
+      - ASPNETCORE_HTTP_PORTS=80
+    restart: unless-stopped
