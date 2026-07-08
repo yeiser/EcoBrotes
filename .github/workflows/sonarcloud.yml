@@ -30,7 +30,7 @@ jobs:
       - name: Begin SonarCloud analysis
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: dotnet sonarscanner begin /k:EcoBrotes /n:EcoBrotes.NET /o:yeiser /d:sonar.token=$env:SONAR_TOKEN /d:sonar.host.url=https://sonarcloud.io /d:sonar.coverage.exclusions="**/*Tests/**/*.cs" /d:sonar.cs.opencover.reportsPaths="**/coverage.opencover.xml"
+        run: dotnet sonarscanner begin /k:EcoBrotes /n:EcoBrotes.NET /o:yeiser /d:sonar.token=$env:SONAR_TOKEN /d:sonar.host.url=https://sonarcloud.io /d:sonar.coverage.exclusions="**/*Tests/**/*.cs,**/Migrations/**" /d:sonar.cs.opencover.reportsPaths="**/coverage.opencover.xml"
 
       - name: Build and test with coverage
         run: dotnet test EcoBrotes.sln --verbosity minimal /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutputDirectory=.
