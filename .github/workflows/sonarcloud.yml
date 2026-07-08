@@ -30,11 +30,9 @@ jobs:
       - name: Begin SonarCloud analysis
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        working-directory: EcoBrotes
         run: dotnet sonarscanner begin /k:EcoBrotes /n:EcoBrotes.NET /o:yeiser /d:sonar.token=$env:SONAR_TOKEN /d:sonar.host.url=https://sonarcloud.io /d:sonar.coverage.exclusions="**/*Tests/**/*.cs"
 
       - name: Build and test with coverage
-        working-directory: EcoBrotes
         run: |
           dotnet restore EcoBrotes.sln
           dotnet build EcoBrotes.sln --no-restore
@@ -45,7 +43,6 @@ jobs:
             /p:CoverletOutputDirectory=.
 
       - name: Find coverage file
-        working-directory: EcoBrotes
         run: |
           Write-Host "Searching for coverage files in all subdirectories..."
           $files = Get-ChildItem -Recurse -Filter "*.opencover.xml"
@@ -60,7 +57,6 @@ jobs:
           }
 
       - name: Verify coverage file exists
-        working-directory: EcoBrotes
         run: |
           if (Test-Path "coverage.opencover.xml") { 
             Write-Host "Coverage file found at root"
@@ -74,10 +70,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: coverage-report
-          path: EcoBrotes/coverage.opencover.xml
+          path: coverage.opencover.xml
 
       - name: End SonarCloud analysis
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        working-directory: EcoBrotes
         run: dotnet sonarscanner end /d:sonar.token=$env:SONAR_TOKEN
