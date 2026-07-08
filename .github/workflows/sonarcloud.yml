@@ -31,7 +31,7 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: https://sonarcloud.io
-        run: dotnet sonarscanner begin /d:sonar.projectKey=EcoBrotes /d:sonar.organization=yeiser /d:sonar.token=%SONAR_TOKEN% /d:sonar.host.url=%SONAR_HOST_URL% /d:sonar.projectName=EcoBrotes.NET
+        run: dotnet sonarscanner begin /k:EcoBrotes /n:EcoBrotes.NET /o:yeiser /d:sonar.token=%SONAR_TOKEN% /d:sonar.host.url=%SONAR_HOST_URL%
 
       - name: Build and test
         run: |
