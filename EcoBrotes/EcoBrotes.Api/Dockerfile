@@ -2,7 +2,7 @@
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 WORKDIR /app
-EXPOSE 80
+EXPOSE 8080
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
@@ -23,4 +23,6 @@ WORKDIR /app
 COPY --from=publish /app/publish .
 COPY EcoBrotes/EcoBrotes.Api/entrypoint.sh .
 RUN chmod +x entrypoint.sh
+# Run as the non-root user provided by the .NET base image
+USER app
 ENTRYPOINT ["./entrypoint.sh"]
