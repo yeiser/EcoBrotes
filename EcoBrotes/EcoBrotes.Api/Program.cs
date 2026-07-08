@@ -67,7 +67,7 @@ using (var scope = app.Services.CreateScope())
     var dataContext = scope.ServiceProvider.GetRequiredService<DataContext>();
     if (dataContext.Database.IsRelational())
     {
-        dataContext.Database.Migrate();
+        await dataContext.Database.MigrateAsync();
     }
 }
 
@@ -111,4 +111,4 @@ app.MapGroup("/api/zonas")
     .MapZonas()
     .WithTags("Zonas");
 
-app.Run();
+await app.RunAsync();
