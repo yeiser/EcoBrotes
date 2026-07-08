@@ -27,9 +27,6 @@ jobs:
       - name: Install SonarScanner
         run: dotnet tool install --global dotnet-sonarscanner
 
-      - name: Install Coverlet
-        run: dotnet tool install --global coverlet.console
-
       - name: Begin SonarCloud analysis
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
@@ -41,20 +38,43 @@ jobs:
         run: |
           dotnet restore EcoBrotes.sln
           dotnet build EcoBrotes.sln --no-restore
-          dotnet test EcoBrotes.sln --no-build --verbosity minimal /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=coverage
+          dotnet test EcoBrotes.sln --no-build --verbosity minimal ^
+            --collect:"XPlat Code Coverage" ^
+            /p:CollectCoverage=true ^
+            /p:CoverletOutputFormat=opencover ^
+            /p:CoverletOutputDirectory=.
+
+      - name: Find coverage file
+        working-directory: EcoBrotes
+        run: |
+          Write-Host "Searching for coverage files in all subdirectories..."
+          $files = Get-ChildItem -Recurse -Filter "*.opencover.xml"
+          if ($files.Count -gt 0) {
+            foreach ($file in $files) {
+              Write-Host "Found: $($file.FullName)"
+            }
+            Copy-Item -Path $files[0].FullName -Destination "coverage.opencover.xml" -Force
+            Write-Host "Copied first coverage file to root"
+          } else {
+            Write-Host "WARNING: No .opencover.xml files found"
+          }
 
       - name: Verify coverage file exists
         working-directory: EcoBrotes
         run: |
-          Write-Host "Searching for coverage files..."
-          Get-ChildItem -Recurse -Filter "coverage.opencover.xml" | ForEach-Object { Write-Host "Found: $($_.FullName)" }
-          if (Test-Path "coverage.opencover.xml") { Write-Host "Coverage file found at root" } else { Write-Host "Coverage file NOT found at root" }
+          if (Test-Path "coverage.opencover.xml") { 
+            Write-Host "Coverage file found at root"
+            $size = (Get-Item "coverage.opencover.xml").Length
+            Write-Host "File size: $size bytes"
+          } else { 
+            Write-Host "Coverage file NOT found at root"
+          }
 
       - name: Upload coverage report
         uses: actions/upload-artifact@v4
         with:
           name: coverage-report
-          path: coverage.opencover.xml
+          path: EcoBrotes/coverage.opencover.xml
 
       - name: End SonarCloud analysis
         env:
