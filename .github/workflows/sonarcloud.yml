@@ -34,9 +34,9 @@ jobs:
 
       - name: Build and test
         run: |
-          dotnet restore EcoBrotes.sln
-          dotnet build EcoBrotes.sln --no-restore
-          dotnet test EcoBrotes.sln --no-build --verbosity minimal
+          dotnet restore EcoBrotes/EcoBrotes.sln
+          dotnet build EcoBrotes/EcoBrotes.sln --no-restore
+          dotnet test EcoBrotes/EcoBrotes.sln --no-build --verbosity minimal
 
       - name: End SonarCloud analysis
         env:
