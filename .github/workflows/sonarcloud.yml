@@ -30,37 +30,13 @@ jobs:
       - name: Begin SonarCloud analysis
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: dotnet sonarscanner begin /k:EcoBrotes /n:EcoBrotes.NET /o:yeiser /d:sonar.token=$env:SONAR_TOKEN /d:sonar.host.url=https://sonarcloud.io /d:sonar.coverage.exclusions="**/*Tests/**/*.cs"
+        run: dotnet sonarscanner begin /k:EcoBrotes /n:EcoBrotes.NET /o:yeiser /d:sonar.token=$env:SONAR_TOKEN /d:sonar.host.url=https://sonarcloud.io /d:sonar.coverage.exclusions="**/*Tests/**/*.cs" /d:sonar.coverage.reports.path=coverage.opencover.xml
 
       - name: Build and test with coverage
         run: |
           dotnet restore EcoBrotes.sln
           dotnet build EcoBrotes.sln --no-restore
-          dotnet test EcoBrotes.sln --no-build --verbosity minimal `
-            --collect:"XPlat Code Coverage" `
-            /p:CollectCoverage=true `
-            /p:CoverletOutputFormat=opencover `
-            /p:CoverletOutputDirectory=.
-
-      - name: Find coverage file
-        run: |
-          Write-Host "Searching for coverage files in all subdirectories..."
-          $files = Get-ChildItem -Recurse -Filter "*.opencover.xml"
-          if ($files.Count -gt 0) {
-            foreach ($file in $files) {
-              Write-Host "Found: $($file.FullName)"
-            }
-            Copy-Item -Path $files[0].FullName -Destination "coverage.opencover.xml" -Force
-            Write-Host "Copied first coverage file to root"
-          } else {
-            Write-Host "WARNING: No .opencover.xml files found"
-          }
-
-      - name: Verify coverage file exists
-        run: |
-          if (Test-Path "coverage.opencover.xml") { 
-            Write-Host "Coverage file found at root"
-            $size = (Get-Item "coverage.opencover.xml").Length
+          dotnet test EcoBrotes.sln --no-build --verbosity minimal ^
             Write-Host "File size: $size bytes"
           } else { 
             Write-Host "Coverage file NOT found at root"
