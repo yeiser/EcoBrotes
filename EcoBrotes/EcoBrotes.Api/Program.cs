@@ -41,8 +41,6 @@ builder.Services.AddHealthChecks()
     .AddDbContextCheck<DataContext>()
     .ForwardToPrometheus();
 
-builder.Services.AddAutoMapper(Assembly.Load("EcoBrotes.Application"));
-
 builder.Services.AddServices();
 
 builder.Services.AddEndpointsApiExplorer();
