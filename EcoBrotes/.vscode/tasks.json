@@ -1,0 +1,11 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "SonarQube Analysis",
+			"type": "shell",
+			"command": "dotnet tool install --global dotnet-sonarscanner",
+			"isBackground": false
+		}
+	]
+}

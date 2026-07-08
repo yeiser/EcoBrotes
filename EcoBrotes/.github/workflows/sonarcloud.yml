@@ -1,0 +1,76 @@
+name: SonarCloud Analysis
+
+on:
+  push:
+    branches:
+      - master
+      - main
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  sonarcloud:
+    name: SonarCloud Analysis
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Shallow clones should be disabled for better analysis
+
+      - name: Cache SonarCloud packages
+        uses: actions/cache@v4
+        with:
+          path: ~/sonar/cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar
+
+      - name: Cache SonarCloud Scanner
+        uses: actions/cache@v4
+        with:
+          path: ~/.sonar/cache
+          key: ${{ runner.os }}-sonar-scanner
+          restore-keys: ${{ runner.os }}-sonar-scanner
+
+      - name: Install SonarCloud Scanner
+        run: dotnet tool update dotnet-sonarscanner --global
+
+      - name: Install Coverlet Collector
+        run: dotnet tool install --global coverlet.console
+
+      - name: Begin SonarCloud analysis
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: |
+          dotnet sonarscanner begin \
+            /k:"EcoBrotes" \
+            /o:"yeiser" \
+            /d:sonar.login="${SONAR_TOKEN}" \
+            /d:sonar.projectName="EcoBrotes.NET" \
+            /d:sonar.coverage.exclusions="**/*Tests/**/*.cs,**/*Test/**/*.cs"
+
+      - name: Restore dependencies
+        run: dotnet restore EcoBrotes/EcoBrotes.sln
+
+      - name: Build EcoBrotes.NET
+        run: dotnet build EcoBrotes/EcoBrotes.sln --no-restore
+
+      - name: Run tests with coverage
+        run: |
+          dotnet test EcoBrotes/EcoBrotes.sln \
+            --no-build \
+            --logger "trx;LogFileName=test-results.trx" \
+            /p:CollectCoverage=true \
+            /p:CoverletOutputFormat=opencover \
+            /p:CoverletOutput="./TestResults/coverage.opencover.xml"
+
+      - name: End SonarCloud analysis
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: dotnet sonarscanner end /d:sonar.login="${SONAR_TOKEN}"
