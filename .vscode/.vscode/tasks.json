@@ -1,0 +1,12 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run EcoBrotes.Api",
+			"type": "shell",
+			"command": "dotnet run --project EcoBrotes/EcoBrotes.Api/EcoBrotes.Api.csproj",
+			"isBackground": true,
+			"problemMatcher": []
+		}
+	]
+}
