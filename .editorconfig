@@ -1,0 +1,20 @@
+# EditorConfig - https://editorconfig.org
+# Evita que se reintroduzcan caracteres corruptos: todo se guarda en UTF-8.
+root = true
+
+[*]
+charset = utf-8
+indent_style = space
+indent_size = 4
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.cs]
+indent_size = 4
+
+[*.{json,yml,yaml,csproj,props,targets}]
+indent_size = 2
+
+# Los scripts de shell deben conservar finales de linea LF (ver .gitattributes).
+[*.sh]
+end_of_line = lf

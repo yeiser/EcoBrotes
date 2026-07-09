@@ -1,3 +1,10 @@
 # Shell scripts must use LF endings so they run inside Linux containers.
 *.sh text eol=lf
 entrypoint.sh text eol=lf
+
+# El codigo fuente se trata como texto (UTF-8, ver .editorconfig).
+*.cs text
+*.csproj text
+*.json text
+*.yml text
+*.yaml text
