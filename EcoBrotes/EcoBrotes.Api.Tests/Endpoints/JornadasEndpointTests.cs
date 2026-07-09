@@ -91,4 +91,53 @@ public class JornadasEndpointTests
 
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
     }
+
+    [Fact]
+    public async Task Put_ValidJornada_Returns204()
+    {
+        await using var webApp = new ApiApp();
+        var client = webApp.CreateClient();
+        var (zonaId, especieId) = await SeedZonaAndEspecie(client);
+
+        var created = await client.PostAsJsonAsync("/api/jornadas", ValidJornada(zonaId, especieId));
+        var id = await created.Content.ReadFromJsonAsync<Guid>();
+
+        var response = await client.PutAsJsonAsync($"/api/jornadas/{id}", new
+        {
+            id,
+            zonaUrbanaId = zonaId,
+            name = "Jornada actualizada",
+            scheduledDate = DateTime.UtcNow.AddDays(20),
+            treeMeta = 10,
+            volunteerCapacity = 2,
+            detalleEspecies = new[] { new { especieArboreaId = especieId, quantity = 10 } }
+        });
+
+        Assert.Equal(HttpStatusCode.NoContent, response.StatusCode);
+    }
+
+    [Fact]
+    public async Task Put_IdMismatch_Returns400()
+    {
+        await using var webApp = new ApiApp();
+        var client = webApp.CreateClient();
+        var (zonaId, especieId) = await SeedZonaAndEspecie(client);
+
+        var created = await client.PostAsJsonAsync("/api/jornadas", ValidJornada(zonaId, especieId));
+        var id = await created.Content.ReadFromJsonAsync<Guid>();
+
+        // El id de la URL no coincide con el del cuerpo -> CoreBusinessException -> 400.
+        var response = await client.PutAsJsonAsync($"/api/jornadas/{id}", new
+        {
+            id = Guid.NewGuid(),
+            zonaUrbanaId = zonaId,
+            name = "Jornada actualizada",
+            scheduledDate = DateTime.UtcNow.AddDays(20),
+            treeMeta = 10,
+            volunteerCapacity = 2,
+            detalleEspecies = new[] { new { especieArboreaId = especieId, quantity = 10 } }
+        });
+
+        Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
+    }
 }

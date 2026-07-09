@@ -16,8 +16,8 @@ namespace EcoBrotes.Application.Jornadas.Command
     {
         public async Task<Unit> Handle(UpdateJornadaCommand request, CancellationToken cancellationToken)
         {
-            // 1. Obtener y validar existencia de la jornada
-            var jornada = await jornadaRepository.GetByIdAsync(request.Id);
+            // 1. Obtener y validar existencia de la jornada (con sus detalles para poder reemplazarlos)
+            var jornada = await jornadaRepository.GetByIdAsync(request.Id, "DetalleArboles");
             if (jornada == null)
             {
                 throw new CoreBusinessException($"La jornada con id {request.Id} no existe.");
