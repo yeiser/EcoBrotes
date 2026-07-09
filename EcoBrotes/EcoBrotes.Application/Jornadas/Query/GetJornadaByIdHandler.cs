@@ -14,7 +14,7 @@ namespace EcoBrotes.Application.Jornadas.Query
     {
         public async Task<JornadaDetailDto> Handle(GetJornadaByIdQuery request, CancellationToken cancellationToken)
         {
-            var jornada = await jornadaRepository.GetByIdAsync(request.Id);
+            var jornada = await jornadaRepository.GetByIdAsync(request.Id, "DetalleArboles");
             if (jornada == null)
             {
                 throw new EcoBrotes.Domain.Exceptions.CoreBusinessException($"La jornada con id {request.Id} no existe.");

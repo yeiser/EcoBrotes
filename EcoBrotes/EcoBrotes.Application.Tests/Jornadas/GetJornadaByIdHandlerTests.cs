@@ -30,7 +30,7 @@ namespace EcoBrotes.Application.Tests.Jornadas
             jornada.Id = id;
             jornada.ZonaUrbanaId = zonaId;
 
-            _jornadaRepository.GetByIdAsync(id).Returns(jornada);
+            _jornadaRepository.GetByIdAsync(id, "DetalleArboles").Returns(jornada);
             _zonaRepository.GetByIdAsync(zonaId).Returns(new ZonaUrbanaEntity { Id = zonaId, Name = "Zona Norte" });
             _especieRepository.GetByIdAsync(Arg.Any<Guid>()).Returns(
                 new EspecieArboreaEntity { Id = Guid.NewGuid(), Name = "Roble", ScientificName = "Quercus", MaxHeightMeters = 20m });
@@ -55,7 +55,7 @@ namespace EcoBrotes.Application.Tests.Jornadas
             var jornada = JornadaBuilder.WithState(JornadaState.ConvocatoriaAbierta, "REF-2026-051");
             jornada.Id = id;
 
-            _jornadaRepository.GetByIdAsync(id).Returns(jornada);
+            _jornadaRepository.GetByIdAsync(id, "DetalleArboles").Returns(jornada);
             _zonaRepository.GetByIdAsync(Arg.Any<Guid>()).Returns((ZonaUrbanaEntity)null!);
             _especieRepository.GetByIdAsync(Arg.Any<Guid>()).Returns(
                 new EspecieArboreaEntity { Name = "Roble", ScientificName = "Quercus", MaxHeightMeters = 20m });
@@ -72,7 +72,7 @@ namespace EcoBrotes.Application.Tests.Jornadas
         {
             // Arrange
             var id = Guid.NewGuid();
-            _jornadaRepository.GetByIdAsync(id).Returns((JornadaReforestacion)null!);
+            _jornadaRepository.GetByIdAsync(id, "DetalleArboles").Returns((JornadaReforestacion)null!);
 
             // Act & Assert
             var exception = await Assert.ThrowsAsync<CoreBusinessException>(

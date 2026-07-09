@@ -100,10 +100,12 @@ app.MapGroup("/api/jornadas")
 
 app.MapGroup("/api/especies")
     .MapEspecies()
+    .AddEndpointFilterFactory(ValidationFilter.ValidationFilterFactory)
     .WithTags("Especies");
 
 app.MapGroup("/api/zonas")
     .MapZonas()
+    .AddEndpointFilterFactory(ValidationFilter.ValidationFilterFactory)
     .WithTags("Zonas");
 
 await app.RunAsync();
