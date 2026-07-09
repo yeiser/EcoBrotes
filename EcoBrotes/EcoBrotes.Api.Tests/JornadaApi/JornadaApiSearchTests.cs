@@ -239,7 +239,7 @@ public class JornadaApiSearchTests
         ctx.Set<ZonaUrbanaEntity>().Add(zona);
         ctx.Set<EspecieArboreaEntity>().Add(especie);
 
-        // Jornada en fecha cercana (15 d�as)
+        // Jornada en fecha cercana (15 días)
         var jornadaCercana = new JornadaReforestacion
         {
             Id = Guid.NewGuid(),
@@ -253,7 +253,7 @@ public class JornadaApiSearchTests
             CodigoUnico = "REF-2026-001"
         };
 
-        // Jornada en fecha lejana (60 d�as)
+        // Jornada en fecha lejana (60 días)
         var jornadaLejana = new JornadaReforestacion
         {
             Id = Guid.NewGuid(),
@@ -296,7 +296,7 @@ public class JornadaApiSearchTests
         ctx.Set<ZonaUrbanaEntity>().Add(zona);
         ctx.Set<EspecieArboreaEntity>().Add(especie);
 
-        // Jornada abierta cercana (15 d�as)
+        // Jornada abierta cercana (15 días)
         var jornadaAbiertaCercana = new JornadaReforestacion
         {
             Id = Guid.NewGuid(),
@@ -310,7 +310,7 @@ public class JornadaApiSearchTests
             CodigoUnico = "REF-2026-001"
         };
 
-        // Jornada finalizada cercana (10 d�as)
+        // Jornada finalizada cercana (10 días)
         var jornadaFinalizadaCercana = new JornadaReforestacion
         {
             Id = Guid.NewGuid(),
@@ -325,7 +325,7 @@ public class JornadaApiSearchTests
         };
         jornadaFinalizadaCercana.Finalizar();
 
-        // Jornada finalizada lejana (60 d�as)
+        // Jornada finalizada lejana (60 días)
         var jornadaFinalizadaLejana = new JornadaReforestacion
         {
             Id = Guid.NewGuid(),
@@ -472,7 +472,7 @@ public class JornadaApiSearchTests
         var jornada = new JornadaReforestacion
         {
             Id = Guid.NewGuid(),
-            Name = "Jornada Vac�a",
+            Name = "Jornada Vacía",
             Zona = zona,
             ZonaUrbanaId = zona.Id,
             ScheduledDate = DateTime.UtcNow.AddDays(14),

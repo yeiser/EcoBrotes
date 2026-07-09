@@ -110,7 +110,7 @@ namespace EcoBrotes.Domain.JornadasReforestacion.Entity
 
             if (scheduledDate < minDate)
             {
-                throw new CoreBusinessException("Las jornadas deben programarse con al menos 7 d�as de anticipaci�n.");
+                throw new CoreBusinessException("Las jornadas deben programarse con al menos 7 días de anticipación.");
             }
 
             _zona.Id.ValidateNotEmpty("el id de la zona es requerido.");
@@ -125,28 +125,28 @@ namespace EcoBrotes.Domain.JornadasReforestacion.Entity
 
         public void ValidateConsistency()
         {
-            // RB-01: Consistencia de metas � sumatoria especies = meta total
+            // RB-01: Consistencia de metas – sumatoria especies = meta total
             var totalSpecies = DetalleArboles.Sum(d => d.Quantity);
             if (totalSpecies != TreeMeta)
             {
                 var difference = Math.Abs(totalSpecies - TreeMeta);
-                throw new CoreBusinessException($"La suma de especies no coincide con la meta declarada. Diferencia: {difference} �rboles");
+                throw new CoreBusinessException($"La suma de especies no coincide con la meta declarada. Diferencia: {difference} árboles");
             }
 
-            // RB-02: Proporci�n voluntario/�rbol
+            // RB-02: Proporción voluntario/árbol
             var minVolunteers = (int)Math.Ceiling((double)TreeMeta / MinVolunteersPerTree);
             if (VolunteerCapacity < minVolunteers)
             {
-                throw new CoreBusinessException($"El cupo m�nimo de voluntarios para esta jornada es {minVolunteers}");
+                throw new CoreBusinessException($"El cupo mínimo de voluntarios para esta jornada es {minVolunteers}");
             }
 
-            // RB-04: Especie �nica � no duplicados
+            // RB-04: Especie única – no duplicados
             var speciesIds = DetalleArboles.Select(d => d.EspecieArboreaId).ToList();
             var duplicates = speciesIds.GroupBy(x => x).Where(g => g.Count() > 1).Select(g => g.Key).ToList();
             if (duplicates.Any())
             {
                 var duplicateSpecies = DetalleArboles.First(d => duplicates.Contains(d.EspecieArboreaId)).Especie.Name;
-                throw new CoreBusinessException($"La especie {duplicateSpecies} ya ha sido agregada. Por favor, consolide las cantidades en una sola l�nea");
+                throw new CoreBusinessException($"La especie {duplicateSpecies} ya ha sido agregada. Por favor, consolide las cantidades en una sola línea");
             }
         }
 
@@ -154,7 +154,7 @@ namespace EcoBrotes.Domain.JornadasReforestacion.Entity
         {
             if (State == JornadaState.Cancelada)
             {
-                throw new CoreBusinessException("La jornada ya est� cancelada.");
+                throw new CoreBusinessException("La jornada ya está cancelada.");
             }
             if (State == JornadaState.Finalizada)
             {

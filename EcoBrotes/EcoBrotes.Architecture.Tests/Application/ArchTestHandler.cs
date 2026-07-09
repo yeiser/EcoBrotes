@@ -25,7 +25,7 @@ namespace ArchitectureTests
             .HaveNameEndingWith("Command")
             .OrShould()
             .HaveNameEndingWith("Factory")
-            .Because("Los manejadores deben estar en la capa de aplicaci�n y deben tener nombres que terminen con 'Handler'")
+            .Because("Los manejadores deben estar en la capa de aplicación y deben tener nombres que terminen con 'Handler'")
             .Check(Architecture);
         }
     }
