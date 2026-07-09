@@ -23,6 +23,8 @@ WORKDIR /app
 COPY --from=publish /app/publish .
 COPY EcoBrotes/EcoBrotes.Api/entrypoint.sh .
 RUN chmod +x entrypoint.sh
+# Create logs directory with proper permissions for non-root user
+RUN mkdir -p /app/logs && touch /app/logs.txt && chmod 666 /app/logs.txt
 # Run as the non-root user provided by the .NET base image
 USER app
 ENTRYPOINT ["./entrypoint.sh"]

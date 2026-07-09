@@ -8,6 +8,7 @@ using FluentValidation;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
+using Microsoft.AspNetCore.Http;
 using Prometheus;
 using Serilog;
 using Serilog.Debugging;
@@ -74,9 +75,30 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+// Middleware de seguridad para headers
+app.Use(async (context, next) =>
+{
+    context.Response.OnStarting(() =>
+    {
+        context.Response.Headers.Append("X-Content-Type-Options", "nosniff");
+        context.Response.Headers.Append("X-XSS-Protection", "1; mode=block");
+        context.Response.Headers.Append("Content-Security-Policy", "default-src 'self'");
+        context.Response.Headers.Append("Strict-Transport-Security", "max-age=31536000; includeSubDomains");
+        context.Response.Headers.Append("Referrer-Policy", "strict-origin-when-cross-origin");
+        context.Response.Headers.Append("Permissions-Policy", "geolocation=(), microphone=(), camera=()");
+        return Task.CompletedTask;
+    });
+    await next();
+});
+
 app.UseHttpMetrics();
 
 app.UseMiddleware<AppExceptionHandlerMiddleware>();
+
+app.UseRouting().UseEndpoints(endpoint =>
+{
+    endpoint.MapMetrics();
+});
 
 app.MapHealthChecks("/healthz", new HealthCheckOptions
 {
@@ -86,11 +108,6 @@ app.MapHealthChecks("/healthz", new HealthCheckOptions
         [HealthStatus.Degraded] = StatusCodes.Status200OK,
         [HealthStatus.Unhealthy] = StatusCodes.Status503ServiceUnavailable
     }
-});
-
-app.UseRouting().UseEndpoints(endpoint =>
-{
-    endpoint.MapMetrics();
 });
 
 app.MapGroup("/api/jornadas")
