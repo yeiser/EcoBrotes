@@ -22,10 +22,10 @@ namespace EcoBrotes.Domain.Common
         /// <summary>
         /// Validates that the value is not null.
         /// </summary>
-        public static object ValidateNull(this object value, string message)
+        public static object ValidateNull(this object? value, string message)
         {
             Require(value != null, message);
-            return value;
+            return value!;
         }
 
         /// <summary>

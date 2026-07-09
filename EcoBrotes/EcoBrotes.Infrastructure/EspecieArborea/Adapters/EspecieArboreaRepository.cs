@@ -37,7 +37,7 @@ namespace EcoBrotes.Infrastructure.EspecieArborea.Adapters
 
         public async Task<IEnumerable<EspecieArboreaEntity>> GetManyAsync() => await especieRepository.GetManyAsync(ActiveFilter);
 
-        public async Task<EspecieArboreaEntity> GetByNameAsync(string name)
+        public async Task<EspecieArboreaEntity?> GetByNameAsync(string name)
         {
             // Efficient query with filter - database does the work
             return await context.Set<EspecieArboreaEntity>()

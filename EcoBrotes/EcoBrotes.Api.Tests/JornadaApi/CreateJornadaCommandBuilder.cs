@@ -9,7 +9,7 @@ public class CreateJornadaCommandBuilder
     DateTime _scheduledDate = DateTime.UtcNow.AddDays(14);
     int _treeMeta = 10;
     int _volunteerCapacity = 2;
-    IEnumerable<DetalleEspecieCommand> _detalleEspecies;
+    IEnumerable<DetalleEspecieCommand> _detalleEspecies = [];
 
     public CreateJornadaCommand Build() => new(_zonaUrbanaId, _name, _scheduledDate, _treeMeta, _volunteerCapacity, _detalleEspecies);
 

@@ -143,7 +143,7 @@ namespace EcoBrotes.Domain.JornadasReforestacion.Entity
             // RB-04: Especie única – no duplicados
             var speciesIds = DetalleArboles.Select(d => d.EspecieArboreaId).ToList();
             var duplicates = speciesIds.GroupBy(x => x).Where(g => g.Count() > 1).Select(g => g.Key).ToList();
-            if (duplicates.Any())
+            if (duplicates.Count > 0)
             {
                 var duplicateSpecies = DetalleArboles.First(d => duplicates.Contains(d.EspecieArboreaId)).Especie.Name;
                 throw new CoreBusinessException($"La especie {duplicateSpecies} ya ha sido agregada. Por favor, consolide las cantidades en una sola línea");

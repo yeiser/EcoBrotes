@@ -28,7 +28,7 @@ namespace EcoBrotes.Application.Common
                 .Where(j => j.State != JornadaState.Finalizada && j.State != JornadaState.Cancelada)
                 .ToList();
 
-            if (activeJornadas.Any())
+            if (activeJornadas.Count > 0)
             {
                 var jornadaCodes = string.Join(", ", activeJornadas.Select(j => j.CodigoUnico));
                 throw new CoreBusinessException(

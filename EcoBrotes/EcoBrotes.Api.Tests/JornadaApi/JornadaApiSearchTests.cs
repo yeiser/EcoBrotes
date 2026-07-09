@@ -24,7 +24,7 @@ public class JornadaApiSearchTests
 
         // Clean existing data to ensure test isolation
         var existingJornadas = await ctx.Set<JornadaReforestacion>().ToListAsync();
-        if (existingJornadas.Any())
+        if (existingJornadas.Count > 0)
         {
             ctx.Set<JornadaReforestacion>().RemoveRange(existingJornadas);
             await ctx.SaveChangesAsync();
@@ -32,14 +32,14 @@ public class JornadaApiSearchTests
 
         // Remove existing entities to ensure clean state
         var existingEspecies = await ctx.Set<EspecieArboreaEntity>().ToListAsync();
-        if (existingEspecies.Any())
+        if (existingEspecies.Count > 0)
         {
             ctx.Set<EspecieArboreaEntity>().RemoveRange(existingEspecies);
             await ctx.SaveChangesAsync();
         }
 
         var existingZonas = await ctx.Set<ZonaUrbanaEntity>().ToListAsync();
-        if (existingZonas.Any())
+        if (existingZonas.Count > 0)
         {
             ctx.Set<ZonaUrbanaEntity>().RemoveRange(existingZonas);
             await ctx.SaveChangesAsync();
@@ -391,21 +391,21 @@ public class JornadaApiSearchTests
 
         // Clean ALL existing data to ensure complete test isolation
         var existingJornadas = await ctx.Set<JornadaReforestacion>().ToListAsync();
-        if (existingJornadas.Any())
+        if (existingJornadas.Count > 0)
         {
             ctx.Set<JornadaReforestacion>().RemoveRange(existingJornadas);
             await ctx.SaveChangesAsync();
         }
 
         var existingEspecies = await ctx.Set<EspecieArboreaEntity>().ToListAsync();
-        if (existingEspecies.Any())
+        if (existingEspecies.Count > 0)
         {
             ctx.Set<EspecieArboreaEntity>().RemoveRange(existingEspecies);
             await ctx.SaveChangesAsync();
         }
 
         var existingZonas = await ctx.Set<ZonaUrbanaEntity>().ToListAsync();
-        if (existingZonas.Any())
+        if (existingZonas.Count > 0)
         {
             ctx.Set<ZonaUrbanaEntity>().RemoveRange(existingZonas);
             await ctx.SaveChangesAsync();

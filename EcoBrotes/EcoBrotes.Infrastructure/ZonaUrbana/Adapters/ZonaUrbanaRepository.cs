@@ -37,7 +37,7 @@ namespace EcoBrotes.Infrastructure.ZonaUrbana.Adapters
 
         public async Task<IEnumerable<ZonaUrbanaEntity>> GetManyAsync() => await zonaRepository.GetManyAsync(ActiveFilter);
 
-        public async Task<ZonaUrbanaEntity> GetByNameAsync(string name)
+        public async Task<ZonaUrbanaEntity?> GetByNameAsync(string name)
         {
             // Efficient query with filter - database does the work
             return await context.Set<ZonaUrbanaEntity>()

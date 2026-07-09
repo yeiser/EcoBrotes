@@ -14,7 +14,7 @@ namespace EcoBrotes.Domain.Tests.JornadasReforestacion.Entity
         int _treeMeta = 10;
         int _volunteerCapacity = 3;
         string _codigoUnico = "REF-2026-001";
-        List<DetalleArbolEntity> _detalleArboles;
+        List<DetalleArbolEntity>? _detalleArboles;
         readonly string _especieName = "Especie Test";
         readonly ZonaUrbanaEntity _zona = new() { Id = Guid.NewGuid(), Name = "Zona de Prueba" };
         
