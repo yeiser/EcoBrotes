@@ -39,10 +39,14 @@ namespace EcoBrotes.Infrastructure.EspecieArborea.Adapters
 
         public async Task<EspecieArboreaEntity?> GetByNameAsync(string name)
         {
-            // Efficient query with filter - database does the work
+            // ToLower() se usa deliberadamente en vez de string.Equals(StringComparison):
+            // EF Core/Npgsql traduce ToLower() a lower() en SQL, mientras que
+            // StringComparison.OrdinalIgnoreCase NO es traducible y lanza en runtime.
+#pragma warning disable CA1862 // Comparacion case-insensitive traducible a SQL
             return await context.Set<EspecieArboreaEntity>()
                 .Where(ActiveFilter)
                 .FirstOrDefaultAsync(e => e.Name.ToLower() == name.ToLower());
+#pragma warning restore CA1862
         }
 
         public async Task DeactivateAsync(Guid id)

@@ -39,10 +39,14 @@ namespace EcoBrotes.Infrastructure.ZonaUrbana.Adapters
 
         public async Task<ZonaUrbanaEntity?> GetByNameAsync(string name)
         {
-            // Efficient query with filter - database does the work
+            // ToLower() se usa deliberadamente en vez de string.Equals(StringComparison):
+            // EF Core/Npgsql traduce ToLower() a lower() en SQL, mientras que
+            // StringComparison.OrdinalIgnoreCase NO es traducible y lanza en runtime.
+#pragma warning disable CA1862 // Comparacion case-insensitive traducible a SQL
             return await context.Set<ZonaUrbanaEntity>()
                 .Where(ActiveFilter)
                 .FirstOrDefaultAsync(z => z.Name.ToLower() == name.ToLower());
+#pragma warning restore CA1862
         }
 
         public async Task DeactivateAsync(Guid id)
