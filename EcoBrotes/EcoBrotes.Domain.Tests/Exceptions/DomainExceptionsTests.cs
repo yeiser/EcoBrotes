@@ -30,7 +30,7 @@ namespace EcoBrotes.Domain.Tests.Exceptions
             Assert.Same(inner, withInner.InnerException);
 
             // RequiredException es un CoreBusinessException
-            Assert.IsAssignableFrom<CoreBusinessException>(new RequiredException());
+            Assert.IsType<CoreBusinessException>(new RequiredException(), exactMatch: false);
         }
 
         [Fact]
@@ -45,7 +45,7 @@ namespace EcoBrotes.Domain.Tests.Exceptions
             Assert.Equal("menor de edad", withInner.Message);
             Assert.Same(inner, withInner.InnerException);
 
-            Assert.IsAssignableFrom<CoreBusinessException>(new UnderAgeException());
+            Assert.IsType<CoreBusinessException>(new UnderAgeException(), exactMatch: false);
         }
 
         [Fact]
@@ -60,7 +60,7 @@ namespace EcoBrotes.Domain.Tests.Exceptions
             Assert.Equal("pais incorrecto", withInner.Message);
             Assert.Same(inner, withInner.InnerException);
 
-            Assert.IsAssignableFrom<CoreBusinessException>(new WrongCountryException());
+            Assert.IsType<CoreBusinessException>(new WrongCountryException(), exactMatch: false);
         }
     }
 }

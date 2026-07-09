@@ -22,10 +22,12 @@ FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 COPY EcoBrotes/EcoBrotes.Api/entrypoint.sh .
-RUN chmod +x entrypoint.sh
-# Create the log file owned by the non-root 'app' user so it can write logs
-# without granting world-writable permissions.
-RUN mkdir -p /app/logs && touch /app/logs.txt && chown -R app:app /app/logs /app/logs.txt
+# Preparar entrypoint y archivo de log (propiedad del usuario no-root 'app',
+# sin permisos world-writable) en una sola capa RUN.
+RUN chmod +x entrypoint.sh \
+    && mkdir -p /app/logs \
+    && touch /app/logs.txt \
+    && chown -R app:app /app/logs /app/logs.txt
 # Run as the non-root user provided by the .NET base image
 USER app
 ENTRYPOINT ["./entrypoint.sh"]

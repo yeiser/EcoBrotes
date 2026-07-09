@@ -45,7 +45,6 @@ public class JornadaApiTests
 
         request.EnsureSuccessStatusCode();
         var jornadaId = JsonSerializer.Deserialize<Guid>(await request.Content.ReadAsStringAsync(), _jsonOptions);
-        Assert.NotNull(jornadaId);
         Assert.NotEqual(Guid.Empty, jornadaId);
     }
 

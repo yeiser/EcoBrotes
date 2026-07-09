@@ -6,6 +6,8 @@ namespace EcoBrotes.Application.Tests.Common
 {
     public class EntityMapperTests
     {
+        private static readonly string[] ExpectedNames = { "Zona Norte", "Zona Sur" };
+
         [Fact]
         public void MapEntity_WithNonNullEntity_ReturnsMappedDto()
         {
@@ -42,7 +44,7 @@ namespace EcoBrotes.Application.Tests.Common
             var names = EntityMapper.MapEntities(zonas, z => z.Name);
 
             // Assert
-            Assert.Equal(new[] { "Zona Norte", "Zona Sur" }, names);
+            Assert.Equal(ExpectedNames, names);
         }
     }
 }

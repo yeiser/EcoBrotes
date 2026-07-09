@@ -117,7 +117,6 @@ namespace EcoBrotes.Domain.Tests.JornadasReforestacion.Entity
             // Assert
             Assert.NotNull(detalle.Especie);
             Assert.True(detalle.Quantity > 0);
-            Assert.NotNull(detalle.Id);
         }
 
         [Fact]
