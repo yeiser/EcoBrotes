@@ -8,7 +8,6 @@ namespace EcoBrotes.Domain.Tests.EspecieArborea.Entity
         string _name = "Pino Nacional";
         string _scientificName = "Pinus pseudostrobus";
         decimal _maxHeightMeters = 25m;
-        EspecieState _state = EspecieState.Activa;
 
         public EspecieArboreaDataBuilder WithId(Guid id)
         {
@@ -31,12 +30,6 @@ namespace EcoBrotes.Domain.Tests.EspecieArborea.Entity
         public EspecieArboreaDataBuilder WithMaxHeightMeters(decimal maxHeight)
         {
             _maxHeightMeters = maxHeight;
-            return this;
-        }
-
-        public EspecieArboreaDataBuilder WithState(EspecieState state)
-        {
-            _state = state;
             return this;
         }
 

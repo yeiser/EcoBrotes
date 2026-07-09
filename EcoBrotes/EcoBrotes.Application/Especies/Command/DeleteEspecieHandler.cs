@@ -13,7 +13,6 @@ namespace EcoBrotes.Application.Especies.Command
     internal class DeleteEspecieHandler(
         IEspecieArboreaRepository especieRepository,
         IJornadaReforestacionRepository jornadaRepository,
-        ReferentialIntegrityService referentialIntegrity,
         IUnitOfWork unitOfWork) : IRequestHandler<DeleteEspecieCommand, Unit>
     {
         public async Task<Unit> Handle(DeleteEspecieCommand request, CancellationToken cancellationToken)
@@ -28,7 +27,7 @@ namespace EcoBrotes.Application.Especies.Command
             }
 
             // RB-09: Validate referential integrity using shared service
-            await referentialIntegrity.ValidateNoActiveReferencesAsync(
+            await ReferentialIntegrityService.ValidateNoActiveReferencesAsync(
                 () => jornadaRepository.GetByEspecieArboreaIdAsync(request.Id),
                 "la especie",
                 request.Id);

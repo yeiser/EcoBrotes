@@ -1,4 +1,3 @@
-using EcoBrotes.Application.Common;
 using EcoBrotes.Application.Ports;
 using EcoBrotes.Application.Tests.Common;
 using EcoBrotes.Application.Zonas.Command;
@@ -18,7 +17,7 @@ namespace EcoBrotes.Application.Tests.Zonas
         private readonly IUnitOfWork _unitOfWork = Substitute.For<IUnitOfWork>();
 
         private DeleteZonaHandler BuildHandler() =>
-            new(_zonaRepository, _jornadaRepository, new ReferentialIntegrityService(_jornadaRepository), _unitOfWork);
+            new(_zonaRepository, _jornadaRepository, _unitOfWork);
 
         [Fact]
         public async Task Handle_WithNoActiveReferences_DeactivatesAndSaves()

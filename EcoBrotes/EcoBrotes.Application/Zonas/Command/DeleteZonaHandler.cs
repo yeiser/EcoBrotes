@@ -13,7 +13,6 @@ namespace EcoBrotes.Application.Zonas.Command
     internal class DeleteZonaHandler(
         IZonaUrbanaRepository zonaRepository,
         IJornadaReforestacionRepository jornadaRepository,
-        ReferentialIntegrityService referentialIntegrity,
         IUnitOfWork unitOfWork) : IRequestHandler<DeleteZonaCommand, Unit>
     {
         public async Task<Unit> Handle(DeleteZonaCommand request, CancellationToken cancellationToken)
@@ -28,7 +27,7 @@ namespace EcoBrotes.Application.Zonas.Command
             }
 
             // RB-09: Validate referential integrity using shared service
-            await referentialIntegrity.ValidateNoActiveReferencesAsync(
+            await ReferentialIntegrityService.ValidateNoActiveReferencesAsync(
                 () => jornadaRepository.GetByZonaIdAsync(request.Id),
                 "la zona urbana",
                 request.Id);

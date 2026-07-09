@@ -1,4 +1,3 @@
-using EcoBrotes.Application.Common;
 using EcoBrotes.Application.Especies.Command;
 using EcoBrotes.Application.Ports;
 using EcoBrotes.Domain.EspecieArborea.Entity;
@@ -18,7 +17,7 @@ namespace EcoBrotes.Application.Tests.Especies
         private readonly IUnitOfWork _unitOfWork = Substitute.For<IUnitOfWork>();
 
         private DeleteEspecieHandler BuildHandler() =>
-            new(_especieRepository, _jornadaRepository, new ReferentialIntegrityService(_jornadaRepository), _unitOfWork);
+            new(_especieRepository, _jornadaRepository, _unitOfWork);
 
         [Fact]
         public async Task Handle_WithNoActiveReferences_DeactivatesAndSaves()

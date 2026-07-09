@@ -363,7 +363,7 @@ public class JornadaApiSearchTests
         using var scope = serviceCollection.CreateScope();
         var mediator = scope.ServiceProvider.GetRequiredService<ISender>();
 
-        var query = new GetJornadasQuery { FechaDesde = new DateTime(2020, 1, 1), FechaHasta = new DateTime(2020, 1, 31), Page = 1, PageSize = 20 };
+        var query = new GetJornadasQuery { FechaDesde = new DateTime(2020, 1, 1, 0, 0, 0, DateTimeKind.Utc), FechaHasta = new DateTime(2020, 1, 31, 0, 0, 0, DateTimeKind.Utc), Page = 1, PageSize = 20 };
         var result = await mediator.Send(query);
         var list = result.Items.ToList();
 

@@ -1,6 +1,5 @@
 using EcoBrotes.Domain.Exceptions;
 using JornadaEntity = EcoBrotes.Domain.JornadasReforestacion.Entity.JornadaReforestacion;
-using JornadaStateEnum = EcoBrotes.Domain.JornadasReforestacion.Entity.JornadaState;
 using DetalleArbolEntity = EcoBrotes.Domain.JornadasReforestacion.Entity.DetalleArbolJornada;
 using ZonaUrbanaEntity = EcoBrotes.Domain.ZonaUrbana.Entity.ZonaUrbanaEntity;
 using EspecieArboreaEntity = EcoBrotes.Domain.EspecieArborea.Entity.EspecieArboreaEntity;
@@ -11,15 +10,13 @@ namespace EcoBrotes.Domain.Tests.JornadasReforestacion.Entity
     {
         Guid _id;
         string _name = "Jornada Reforestación Zona Norte";
-        Guid _zonaUrbanaId = Guid.NewGuid();
         DateTime _scheduledDate = DateTime.UtcNow.AddDays(14);
         int _treeMeta = 10;
         int _volunteerCapacity = 3;
-        JornadaStateEnum _state = JornadaStateEnum.ConvocatoriaAbierta;
         string _codigoUnico = "REF-2026-001";
         List<DetalleArbolEntity> _detalleArboles;
-        string _especieName = "Especie Test";
-        ZonaUrbanaEntity _zona = new() { Id = Guid.NewGuid(), Name = "Zona de Prueba" };
+        readonly string _especieName = "Especie Test";
+        readonly ZonaUrbanaEntity _zona = new() { Id = Guid.NewGuid(), Name = "Zona de Prueba" };
         
         private List<DetalleArbolEntity> CreateDefaultDetalleArboles()
         {
@@ -42,12 +39,6 @@ namespace EcoBrotes.Domain.Tests.JornadasReforestacion.Entity
         public JornadaReforestacionDataBuilder WithName(string name)
         {
             _name = name;
-            return this;
-        }
-
-        public JornadaReforestacionDataBuilder WithZonaUrbanaId(Guid zonaUrbanaId)
-        {
-            _zonaUrbanaId = zonaUrbanaId;
             return this;
         }
 
@@ -92,6 +83,8 @@ namespace EcoBrotes.Domain.Tests.JornadasReforestacion.Entity
                 Id = _id,
                 Name = _name,
                 Zona = _zona,
+                ScheduledDate = _scheduledDate,
+                TreeMeta = _treeMeta,
                 VolunteerCapacity = _volunteerCapacity,
                 CodigoUnico = _codigoUnico,
                 DetalleArboles = _detalleArboles

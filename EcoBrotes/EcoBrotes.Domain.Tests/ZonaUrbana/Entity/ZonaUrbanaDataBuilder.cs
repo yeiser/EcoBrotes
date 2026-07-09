@@ -6,7 +6,6 @@ namespace EcoBrotes.Domain.Tests.ZonaUrbana.Entity
     {
         Guid _id = Guid.NewGuid();
         string _name = "Zona de Prueba Norte";
-        ZonaState _state = ZonaState.Activa;
 
         public ZonaUrbanaDataBuilder WithId(Guid id)
         {
@@ -17,12 +16,6 @@ namespace EcoBrotes.Domain.Tests.ZonaUrbana.Entity
         public ZonaUrbanaDataBuilder WithName(string name)
         {
             _name = name;
-            return this;
-        }
-
-        public ZonaUrbanaDataBuilder WithState(ZonaState state)
-        {
-            _state = state;
             return this;
         }
 

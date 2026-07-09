@@ -41,7 +41,7 @@ public class AppExceptionHandlerMiddleware
         }
     }
 
-    private int GetStatusCodeForException(Exception ex)
+    private static int GetStatusCodeForException(Exception ex)
     {
         return StatusCodes.TryGetValue(ex.GetType(), out var statusCode)
             ? (int)statusCode

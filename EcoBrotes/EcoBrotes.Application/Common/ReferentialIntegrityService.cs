@@ -8,7 +8,7 @@ namespace EcoBrotes.Application.Common
     /// Shared service for validating referential integrity before soft-delete operations.
     /// Prevents deactivating entities that are still referenced by active jornadas.
     /// </summary>
-    public class ReferentialIntegrityService(IJornadaReforestacionRepository jornadaRepository)
+    public static class ReferentialIntegrityService
     {
         /// <summary>
         /// Validates that no active jornadas reference the entity.
@@ -18,7 +18,7 @@ namespace EcoBrotes.Application.Common
         /// <param name="entityName">Display name of the entity (e.g., "especie", "zona urbana")</param>
         /// <param name="entityId">ID of the entity being deleted</param>
         /// <exception cref="CoreBusinessException">Thrown if active jornadas reference this entity</exception>
-        public async Task ValidateNoActiveReferencesAsync(
+        public static async Task ValidateNoActiveReferencesAsync(
             Func<Task<IEnumerable<JornadaReforestacion>>> getReferencedJornadas,
             string entityName,
             Guid entityId)

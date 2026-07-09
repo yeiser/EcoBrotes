@@ -15,7 +15,6 @@ public static class AutoLoadServices
         services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
         services.AddScoped(typeof(JornadaFactory));
         services.AddScoped<IUnitOfWork, UnitOfWork>();
-        services.AddScoped<ReferentialIntegrityService>();
 
         var _services = AppDomain.CurrentDomain.GetAssemblies()
               .Where(assembly =>

@@ -14,13 +14,9 @@ namespace EcoBrotes.Domain.JornadasReforestacion.Entity
 
         private string _name = default!;
         private ZonaUrbanaEntity _zona = default!;
-        private DateTime _scheduledDate;
-        private int _treeMeta;
         private int _volunteerCapacity;
         private int _totalInscritos;
-        private JornadaState _state;
         private ICollection<DetalleArbolEntity> _detalleArboles = default!;
-        private string _codigoUnico = default!;
 
         public required string Name
         {
@@ -43,23 +39,9 @@ namespace EcoBrotes.Domain.JornadasReforestacion.Entity
             }
         }
 
-        public DateTime ScheduledDate
-        {
-            get => _scheduledDate;
-            set
-            {
-                _scheduledDate = value;
-            }
-        }
+        public DateTime ScheduledDate { get; set; }
 
-        public int TreeMeta
-        {
-            get => _treeMeta;
-            set
-            {
-                _treeMeta = value;
-            }
-        }
+        public int TreeMeta { get; set; }
 
         public int VolunteerCapacity
         {
@@ -84,14 +66,7 @@ namespace EcoBrotes.Domain.JornadasReforestacion.Entity
             }
         }
 
-        public JornadaState State
-        {
-            get => _state;
-            set
-            {
-                _state = value;
-            }
-        }
+        public JornadaState State { get; set; }
 
         public required ICollection<DetalleArbolEntity> DetalleArboles
         {
@@ -139,11 +114,11 @@ namespace EcoBrotes.Domain.JornadasReforestacion.Entity
             }
 
             _zona.Id.ValidateNotEmpty("el id de la zona es requerido.");
-            _scheduledDate = scheduledDate;
-            _treeMeta = treeMeta;
-            _codigoUnico = codigoUnico;
+            ScheduledDate = scheduledDate;
+            TreeMeta = treeMeta;
+            CodigoUnico = codigoUnico;
             _detalleArboles = detalleArboles;
-            _state = JornadaState.ConvocatoriaAbierta;
+            State = JornadaState.ConvocatoriaAbierta;
 
             ValidateConsistency();
         }

@@ -15,7 +15,6 @@ namespace ArchitectureTests
         public void LosManejadoresDebenEstarEnCommandYQuery()
         {
             var portNamespacePatternCommand = "EcoBrotes.Application.*.Command";
-            var portNamespacePatternQuery = "EcoBrotes.Application.*.Query";
 
             Classes()
             .That()

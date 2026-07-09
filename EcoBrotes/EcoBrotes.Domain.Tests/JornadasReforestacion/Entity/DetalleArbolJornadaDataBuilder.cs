@@ -10,7 +10,6 @@ namespace EcoBrotes.Domain.Tests.JornadasReforestacion.Entity
         EspecieArboreaEntity _especie = new() { Id = Guid.NewGuid(), Name = "Test", ScientificName = "Test", MaxHeightMeters = 10m };
         int _quantity = 5;
         Guid _jornadaReforestacionId;
-        Guid _especieArboreaId;
 
         public DetalleArbolJornadaDataBuilder WithId(Guid id)
         {
@@ -33,12 +32,6 @@ namespace EcoBrotes.Domain.Tests.JornadasReforestacion.Entity
         public DetalleArbolJornadaDataBuilder WithJornadaReforestacionId(Guid jornadaId)
         {
             _jornadaReforestacionId = jornadaId;
-            return this;
-        }
-
-        public DetalleArbolJornadaDataBuilder WithEspecieArboreaId(Guid especieId)
-        {
-            _especieArboreaId = especieId;
             return this;
         }
 

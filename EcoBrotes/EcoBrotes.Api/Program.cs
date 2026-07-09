@@ -18,11 +18,6 @@ var config = builder.Configuration;
 
 builder.Services.AddValidatorsFromAssemblyContaining<Program>(ServiceLifetime.Singleton);
 
-/*builder.Services.AddDbContext<DataContext>(opts =>
-{
-    opts.UseSqlServer(config.GetConnectionString("db"));
-});*/
-
 builder.Services.AddDbContext<DataContext>(opts =>
 {
     var useInMemory = config.GetValue<bool>("UseInMemoryDatabase");

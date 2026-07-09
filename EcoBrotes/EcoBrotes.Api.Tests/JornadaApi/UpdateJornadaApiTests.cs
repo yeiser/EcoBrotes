@@ -18,7 +18,6 @@ public class UpdateJornadaApiTests
         using var scope = serviceCollection.CreateScope();
         var mediator = scope.ServiceProvider.GetRequiredService<IMediator>();
         var unitOfWork = scope.ServiceProvider.GetRequiredService<IUnitOfWork>();
-        var jornadaRepo = scope.ServiceProvider.GetRequiredService<IJornadaReforestacionRepository>();
 
         var zona = new ZonaUrbanaDataBuilder().WithName("Zona Test").Build();
         var especie1 = new EspecieArboreaDataBuilder().WithName("Pino").WithScientificName("Pinus").WithMaxHeightMeters(20m).Build();
@@ -95,7 +94,6 @@ public class UpdateJornadaApiTests
         using var scope = serviceCollection.CreateScope();
         var mediator = scope.ServiceProvider.GetRequiredService<IMediator>();
         var unitOfWork = scope.ServiceProvider.GetRequiredService<IUnitOfWork>();
-        var jornadaRepo = scope.ServiceProvider.GetRequiredService<IJornadaReforestacionRepository>();
 
         var zona = new ZonaUrbanaDataBuilder().WithName("Zona Test").Build();
         var especie = new EspecieArboreaDataBuilder().WithName("Pino").WithScientificName("Pinus").WithMaxHeightMeters(20m).Build();
@@ -119,6 +117,7 @@ public class UpdateJornadaApiTests
         var jornadaId = await mediator.Send(createCommand);
 
         // Manually update jornada state to Finalizada
+        var jornadaRepo = scope.ServiceProvider.GetRequiredService<IJornadaReforestacionRepository>();
         var jornada = await jornadaRepo.GetByIdAsync(jornadaId);
         Assert.NotNull(jornada);
         jornada.Finalizar();

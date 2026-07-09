@@ -19,10 +19,10 @@ namespace EcoBrotes.Infrastructure.JornadasReforestacion.Adapters
         public async Task<int> GetCountAsync() => await jornadaRepository.GetCountAsync();
 
         public async Task<int> GetCountAsync(
-            Guid? zonaId = null,
-            IEnumerable<string>? estados = null,
-            DateTime? fechaDesde = null,
-            DateTime? fechaHasta = null)
+            Guid? zonaId,
+            IEnumerable<string>? estados,
+            DateTime? fechaDesde,
+            DateTime? fechaHasta)
         {
             Expression<Func<JornadaEntity, bool>>? filter = null;
 
