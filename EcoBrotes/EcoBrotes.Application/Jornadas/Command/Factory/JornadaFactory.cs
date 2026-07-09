@@ -32,6 +32,7 @@ namespace EcoBrotes.Application.Jornadas.Command.Factory
             {
                 Name = command.Name,
                 Zona = zona,
+                ZonaUrbanaId = zona.Id,
                 VolunteerCapacity = command.VolunteerCapacity,
                 DetalleArboles = detalleArboles,
                 CodigoUnico = codigoUnico
