@@ -13,8 +13,24 @@ namespace EcoBrotes.Application.Jornadas.Command
     {
         public async Task<Guid> Handle(CreateJornadaCommand request, CancellationToken cancellationToken)
         {
+            // Force UTC to avoid Npgsql timestamp with time zone errors
+            var scheduledDate = request.ScheduledDate;
+            if (scheduledDate.Kind != DateTimeKind.Utc)
+            {
+                scheduledDate = DateTime.SpecifyKind(scheduledDate, DateTimeKind.Utc);
+            }
+
+            // Create a new command with the UTC date
+            var utcRequest = new CreateJornadaCommand(
+                request.ZonaUrbanaId,
+                request.Name,
+                scheduledDate,
+                request.TreeMeta,
+                request.VolunteerCapacity,
+                request.DetalleEspecies);
+
             var codigoUnico = await generateCodigoUnicoService.ExecuteAsync();
-            var jornada = await jornadaFactory.CreateAsync(request, codigoUnico);
+            var jornada = await jornadaFactory.CreateAsync(utcRequest, codigoUnico);
             var jornadaId = await saveJornadaService.ExecuteAsync(jornada);
             await unitOfWork.SaveAsync(cancellationToken);
             return jornadaId;
