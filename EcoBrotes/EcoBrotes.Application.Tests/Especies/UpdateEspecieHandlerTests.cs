@@ -46,6 +46,7 @@ namespace EcoBrotes.Application.Tests.Especies
             await _unitOfWork.DidNotReceive().SaveAsync(Arg.Any<CancellationToken>());
         }
 
+        [Trait("ReglaNegocio", "RB-06")]
         [Fact]
         public async Task Handle_WithInactiveEspecie_ThrowsCoreBusinessException()
         {

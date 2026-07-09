@@ -33,6 +33,7 @@ namespace EcoBrotes.Application.Tests.Common
             await ReferentialIntegrityService.ValidateNoActiveReferencesAsync(getReferenced, "la especie", Guid.NewGuid());
         }
 
+        [Trait("ReglaNegocio", "RB-09")]
         [Fact]
         public async Task ValidateNoActiveReferencesAsync_WithActiveJornada_ThrowsWithCodes()
         {

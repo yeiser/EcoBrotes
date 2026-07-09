@@ -67,6 +67,7 @@ namespace EcoBrotes.Application.Tests.Zonas
             Assert.Contains("ya se encuentra desactivada", exception.Message);
         }
 
+        [Trait("ReglaNegocio", "RB-09")]
         [Fact]
         public async Task Handle_WithActiveJornadaReference_ThrowsCoreBusinessException()
         {

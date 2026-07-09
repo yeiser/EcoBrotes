@@ -29,6 +29,7 @@ namespace EcoBrotes.Domain.Tests.JornadasReforestacion.Entity
             Assert.Contains("men", exception.Message.ToLower());
         }
 
+        [Trait("ReglaNegocio", "RB-01")]
         [Fact]
         public void Jornada_Initialize_WithInconsistentMeta_ThrowsException()
         {
@@ -44,6 +45,7 @@ namespace EcoBrotes.Domain.Tests.JornadasReforestacion.Entity
             Assert.Contains("3", exception.Message);
         }
 
+        [Trait("ReglaNegocio", "RB-02")]
         [Fact]
         public void Jornada_Initialize_WithInsufficientVolunteers_ThrowsException()
         {
@@ -60,6 +62,7 @@ namespace EcoBrotes.Domain.Tests.JornadasReforestacion.Entity
             Assert.Contains("2", exception.Message);
         }
 
+        [Trait("ReglaNegocio", "RB-04")]
         [Fact]
         public void Jornada_Initialize_WithDuplicateSpecies_ThrowsException()
         {

@@ -44,6 +44,7 @@ namespace EcoBrotes.Application.Tests.Zonas
             await _unitOfWork.DidNotReceive().SaveAsync(Arg.Any<CancellationToken>());
         }
 
+        [Trait("ReglaNegocio", "RB-06")]
         [Fact]
         public async Task Handle_WithInactiveZona_ThrowsCoreBusinessException()
         {
