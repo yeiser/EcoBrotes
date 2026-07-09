@@ -70,7 +70,7 @@ namespace EcoBrotes.Infrastructure.JornadasReforestacion.Adapters
             DateTime? fechaDesde = null,
             DateTime? fechaHasta = null,
             int page = 1,
-            int pageSize = 20)
+            int pageSize = 50)
         {
             // Build filter expression dynamically
             Expression<Func<JornadaEntity, bool>>? filter = null;

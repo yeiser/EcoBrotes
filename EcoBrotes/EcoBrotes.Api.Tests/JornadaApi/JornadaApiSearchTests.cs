@@ -491,4 +491,136 @@ public class JornadaApiSearchTests
         Assert.Single(list);
         Assert.Equal(0m, list[0].OcupacionPct);
     }
+
+    [Fact]
+    public async Task GetJornadas_PageSizeEqualToMax_ReturnsAll()
+    {
+        // PageSize = 50 (el máximo permitido) debe ser válido
+        await using var webApp = new ApiApp();
+        var serviceCollection = webApp.GetServiceCollection();
+        using var scope = serviceCollection.CreateScope();
+        var ctx = scope.ServiceProvider.GetRequiredService<DataContext>();
+        var mediator = scope.ServiceProvider.GetRequiredService<ISender>();
+
+        // Create zone and species
+        var zona = new ZonaUrbanaEntity { Id = Guid.NewGuid(), Name = "Zona Max" };
+        var especie = new EspecieArboreaEntity { Id = Guid.NewGuid(), Name = "Pino", ScientificName = "Pinus", MaxHeightMeters = 20m };
+        ctx.Set<ZonaUrbanaEntity>().Add(zona);
+        ctx.Set<EspecieArboreaEntity>().Add(especie);
+
+        // Create 10 jornadas
+        for (int i = 1; i <= 10; i++)
+        {
+            var jornada = new JornadaReforestacion
+            {
+                Id = Guid.NewGuid(),
+                Name = $"Jornada {i}",
+                Zona = zona,
+                ZonaUrbanaId = zona.Id,
+                ScheduledDate = DateTime.UtcNow.AddDays(i * 7),
+                TreeMeta = 10,
+                VolunteerCapacity = 10,
+                DetalleArboles = new List<DetalleArbolEntity> { new DetalleArbolEntity { Especie = especie, EspecieArboreaId = especie.Id, Quantity = 10 } }
+            };
+            ctx.Set<JornadaReforestacion>().Add(jornada);
+        }
+
+        await ctx.SaveChangesAsync();
+
+        var query = new GetJornadasQuery { Page = 1, PageSize = 50 };
+        var result = await mediator.Send(query);
+        var list = result.Items.ToList();
+
+        Assert.Equal(10, list.Count);
+        Assert.Equal(50, result.PageSize);
+        Assert.Equal(10, result.TotalCount);
+        Assert.Equal(1, result.TotalPages);
+    }
+
+    [Fact]
+    public async Task GetJornadas_PageSizeExceedsMax_ReturnsValidationError()
+    {
+        // PageSize > 50 debe retornar error de validación 400
+        await using var webApp = new ApiApp();
+        var serviceCollection = webApp.GetServiceCollection();
+        using var scope = serviceCollection.CreateScope();
+        var ctx = scope.ServiceProvider.GetRequiredService<DataContext>();
+        var mediator = scope.ServiceProvider.GetRequiredService<ISender>();
+
+        // Create zone and species
+        var zona = new ZonaUrbanaEntity { Id = Guid.NewGuid(), Name = "Zona Over" };
+        var especie = new EspecieArboreaEntity { Id = Guid.NewGuid(), Name = "Pino", ScientificName = "Pinus", MaxHeightMeters = 20m };
+        ctx.Set<ZonaUrbanaEntity>().Add(zona);
+        ctx.Set<EspecieArboreaEntity>().Add(especie);
+
+        // Create 5 jornadas
+        for (int i = 1; i <= 5; i++)
+        {
+            var jornada = new JornadaReforestacion
+            {
+                Id = Guid.NewGuid(),
+                Name = $"Jornada {i}",
+                Zona = zona,
+                ZonaUrbanaId = zona.Id,
+                ScheduledDate = DateTime.UtcNow.AddDays(i * 7),
+                TreeMeta = 10,
+                VolunteerCapacity = 10,
+                DetalleArboles = new List<DetalleArbolEntity> { new DetalleArbolEntity { Especie = especie, EspecieArboreaId = especie.Id, Quantity = 10 } }
+            };
+            ctx.Set<JornadaReforestacion>().Add(jornada);
+        }
+
+        await ctx.SaveChangesAsync();
+
+        var client = webApp.CreateClient();
+        var response = await client.GetAsync("/api/jornadas/?page=1&pageSize=100");
+
+        // Debe retornar 400 Bad Request
+        Assert.Equal(System.Net.HttpStatusCode.BadRequest, response.StatusCode);
+    }
+
+    [Fact]
+    public async Task GetJornadas_DefaultPageSize_Returns50()
+    {
+        // Si no se especifica pageSize, el valor por defecto debe ser 50
+        await using var webApp = new ApiApp();
+        var serviceCollection = webApp.GetServiceCollection();
+        using var scope = serviceCollection.CreateScope();
+        var ctx = scope.ServiceProvider.GetRequiredService<DataContext>();
+        var mediator = scope.ServiceProvider.GetRequiredService<ISender>();
+
+        // Create zone and species
+        var zona = new ZonaUrbanaEntity { Id = Guid.NewGuid(), Name = "Zona Default" };
+        var especie = new EspecieArboreaEntity { Id = Guid.NewGuid(), Name = "Pino", ScientificName = "Pinus", MaxHeightMeters = 20m };
+        ctx.Set<ZonaUrbanaEntity>().Add(zona);
+        ctx.Set<EspecieArboreaEntity>().Add(especie);
+
+        // Create 30 jornadas
+        for (int i = 1; i <= 30; i++)
+        {
+            var jornada = new JornadaReforestacion
+            {
+                Id = Guid.NewGuid(),
+                Name = $"Jornada {i}",
+                Zona = zona,
+                ZonaUrbanaId = zona.Id,
+                ScheduledDate = DateTime.UtcNow.AddDays(i * 7),
+                TreeMeta = 10,
+                VolunteerCapacity = 10,
+                DetalleArboles = new List<DetalleArbolEntity> { new DetalleArbolEntity { Especie = especie, EspecieArboreaId = especie.Id, Quantity = 10 } }
+            };
+            ctx.Set<JornadaReforestacion>().Add(jornada);
+        }
+
+        await ctx.SaveChangesAsync();
+
+        // Usar query sin especificar PageSize (debe usar default 50)
+        var query = new GetJornadasQuery { Page = 1 };
+        var result = await mediator.Send(query);
+        var list = result.Items.ToList();
+
+        Assert.Equal(30, list.Count);
+        Assert.Equal(50, result.PageSize);
+        Assert.Equal(30, result.TotalCount);
+    }
 }

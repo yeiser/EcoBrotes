@@ -11,7 +11,9 @@ public class GetJornadasRequestValidator : AbstractValidator<GetJornadasRequest>
             .GreaterThan(0);
 
         RuleFor(request => request.PageSize)
-            .GreaterThan(0);
+            .GreaterThan(0)
+            .LessThanOrEqualTo(50)
+            .WithMessage("PageSize no puede ser mayor a 50 registros.");
 
         RuleFor(request => request.FechaHasta)
             .GreaterThan(request => request.FechaDesde)

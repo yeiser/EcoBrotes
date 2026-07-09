@@ -20,7 +20,7 @@ namespace EcoBrotes.Domain.JornadasReforestacion.Port
             DateTime? fechaDesde = null,
             DateTime? fechaHasta = null,
             int page = 1,
-            int pageSize = 20);
+            int pageSize = 50);
         Task<IEnumerable<JornadaReforestacion>> GetByZonaIdAsync(Guid zonaId);
         Task<IEnumerable<JornadaReforestacion>> GetByEspecieArboreaIdAsync(Guid especieId);
         void Update(JornadaReforestacion jornada);
